@@ -1,0 +1,153 @@
+body
+  background: #fff
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+  display: block
+
+.modal-background
+  @include centering_img
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  position: fixed
+  z-index: 100
+  width: 100%
+  height: 100%
+  // box-shadow: 1px 1px rgba(255, 255, 255, 0.4), -1px -1px rgba(0, 0, 0, 0.4)
+  background: rgba(0, 0, 0, 0.8)
+
+
+.blind
+  visibility: hidden
+  overflow: hidden
+  position: absolute
+  top: 0
+  left: 0
+  width: 1px
+  height: 1px
+  font-size: 0
+  line-height: 0
+
+
+#pointWriteArea
+  // border: 1px solid $font-faint-color
+  margin: 0 auto
+  width: 400px
+  text-align: center
+  color: $font-sub-color
+  // padding: 40px 20px
+  background: #fff
+  position: relative
+  border-radius: 5px
+  // padding: 60px 40px
+
+
+.review__rating__title
+  background: $point-color
+  padding: 24px
+  color: #fff
+  font-size: $font-l-size
+  font-weight: 300
+  border-radius: 4px 4px 0 0
+
+
+
+.review__lists
+  padding: 24px 0 5px 0
+  margin: 20px
+.review__list
+  // background: #5a4
+  display: inline-block
+  font-size: $font-m-size
+  padding: 10px
+
+// .review__list ul
+
+
+
+.review__list ul li
+  // background: #5ac
+  padding: 5px 0 15px 0
+  margin: 3px 0 5px 0
+  display: flex
+  i
+    color: black
+    &:hover
+      color: gold
+      // if ($())
+
+
+
+
+.review-content
+  padding: 0 20px 0 20px
+  margin: 20px 0
+
+.review-content textarea
+  width: 80%
+  border-radius: 4px 0 0 4px
+  // box-sizing: border-box
+  outline: none
+  resize: none
+  background: $bg-color
+  white-space: pre-wrap
+  word-wrap: break-word
+  padding: 1px 0 0 5px
+  float: left
+  font-size: $font-xs-size
+
+.review__btn__add
+  background: $point-color
+  padding: 20px
+  font-size: $font-s-size
+  color: #fff
+  width: 20%
+  border-radius: 0 4px 4px 0
+
+.modal-close
+  position: absolute
+  font-size: $font-l-size
+  font-weight: 400
+  color: $point-color
+  top: 14px
+  right: 20px
+
+.modal-close:hover
+  position: absolute
+  font-size: $font-l-size
+  font-weight: 400
+  color: $point-color
+
+////////////////////////
+
+.star-rating__checkbox
+  position: absolute
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px
+  margin: -1px
+  padding: 0
+  border: 0
+
+.star-rating__star
+  display: inline-block
+  padding: 2px
+  vertical-align: middle
+  line-height: 1
+  font-size: $font-m-size
+  color: #ABABAB
+  transition: color .2s ease-out
+
+.star-rating__star:hover
+  cursor: pointer
+
+.star-rating__star.is-selected
+  color: #FFD700
+
+.star-rating__star.is-disabled:hover
+  cursor: default

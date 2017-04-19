@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Vue JS - Modal 컴포넌트</title>
+  <link rel="stylesheet" href="css/vue-demo.css">
+  <link rel="stylesheet" href="css/main-index.css">
+</head>
+<body>
+
+  <div id="join" v-cloak>
+    <join-modal></join-modal>
+  </div>
+
+<!-- CDN: Vue -->
+<script src="https://unpkg.com/vue@2.2.4/dist/vue.js"></script>
+<!-- Vue Control File -->
+<script>
+// Vue.component('join-modal', );
+  var vm = new Vue({
+    el: '#join',
+    components: {
+      'join-modal': {
+        template: `
+        <div v-if="is_visible" class="modal is-active">
+          <div class="modal-background" @click="closeModal"></div>
+          <div class="modal-content">
+            <div class="box">
+              <div class="sign-up__container">
+                  <h1 class="sign-up__heading">회원가입</h1>
+                  <form class="sign-up__field ng-pristine ng-valid ng-valid-email ng-valid-required">
+                    <label class="info skip-nav" for="email">이메일주소</label>
+                    <input id="email" type="email" placeholder="이메일 주소" title="회원가입 이메일 주소 입력" ng-model="email" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-email ng-valid-required">
+                    <label for="name" class="a11y">이름</label>
+                    <input id="name" type="text" title="회원가입 이름 입력" placeholder="이름" ng-model="nickname" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                    <label for="password" class="a11y">비밀번호 6자 이상</label>
+                    <input id="password" type="password" title="회원가입 비밀번호 입력" placeholder="비밀번호(6자 이상)" ng-model="pw" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                    <label class="skip-nav" for="">비밀번호 확인</label>
+                    <input type="password" placeholder="비밀번호 확인" required="" title="비밀번호 확인" ng-model="pw" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+                    <input id="policy" type="checkbox" required>
+                    <label for="policy" class="policy">서비스 이용 약관에 동의합니다.</label>
+                    <div class="checkbox-custom checkbox-default">
+                      <button class="join__email-btn" ng-click="Join()">회원가입</button>
+                    </div>
+                  </form>
+                  <div class="facebook__join ng-scope" data-ng-controller="FBLoginController">
+                    <button class="facebook__join-btn" ng-click="FBLogin()">facebook 회원가입</button>
+                  </div>
+                 <button class="modal-close" @click="closeModal">X</button>
+              </div>
+              </div>
+              </div>
+            </div>
+        `,
+        data: function() {
+          return {
+            is_visible: true
+          }
+        },
+        methods: {
+          closeModal: function() {
+            console.log('clicked');
+            this.is_visible = false;
+          }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+
+@media screen and (max-width: 689px)
+  .header
+    // margin-bottom: 24px
+
+
+  .header__heading
+    background: $main-color
+    padding: 0 20px
+    height: 72px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  .header__logo
+    color: $point-color
+    font-size: 38px
+    font-weight: 800
+
+  .header__navi__btn-menu--open,
+  .header__navi__btn-menu--close
+    height: 68px
+    float: right
+    color: $point-color
+    .icon-menu, .icon-cancel
+      font-size: 30px
+      font-weight: 800
+
+
+  .header__navi
+    display: block
+    background: #fff
+
+
+
+  .header__navi__lnb_list
+    li
+      height: 72px
+      font-size: $font-m-size
+      display: flex
+      align-items: center
+  .navi_menu_service
+    // margin: 28px 0
+    &::before
+      content: ''
+      background: #aaa
+      position: absolute
+      top: 217px
+      left: 20px
+      width: 90%
+      height: 1px
+
+  .navi_menu_search
+    // margin: 28px 0
+    &::before
+      content: ''
+      background: #aaa
+      position: absolute
+      top: 145px
+      left: 20px
+      width: 90%
+      height: 1px
+
+  .navi_menu_tutor, .navi_menu_service,.navi_menu_search,.navi_menu_enroll
+    padding: 20px
+    a
+      padding: 20px 60% 20px 0
+      &:hover
+        font-weight: 600
+
+  .header__navi__lnb_list-sec-2
+    display: flex
+    justify-content: center
+    li
+      width: 50%
+      font-size: $font-m-size
+      display: flex
+      align-items: center
+
+
+  .navi_menu_join , .navi_menu_login
+    border: 2px solid $point-color
+    display: flex
+    justify-content: center
+
+  .navi_menu_join
+    background: $point-color
+    color: #fff
+    a
+      display: block
+      padding: 20px
+    &:hover
+      background: $point-sub-color
+      border: 2px solid $point-sub-color
+      color: #fff
+      background: $point-sub-color
+
+
+  .navi_menu_login
+    background: #fff
+    color: $point-color
+    a
+      padding: 20px
+    &:hover
+      background: $point-sub-color
+      border: 2px solid $point-sub-color
+      color: #fff
+      background: $point-sub-color
+
+
+@media screen and (min-width: 690px)
+  .header
+    background: $main-color
+    // opacity: 0.9
+
+
+  .header__wrapper
+    max-width: 1200px
+    padding: 0 20px 0 20px
+    margin: 0 auto
+    height: 72px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  .header__logo
+    color: $point-color
+    font-size: 38px
+    font-weight: 800
+    // padding: 0 20px
+
+
+
+  .header__navi__btn-menu--open,
+  .header__navi__btn-menu--close
+    display: none
+
+  .header__navi
+    display: flex
+
+  .header__navi__lnb_list, .header__navi__lnb_list-sec-2
+    display: flex
+    font-size: $font-m-size
+    color: white
+
+
+    li
+      margin-left: 40px
+      a
+        padding: 20px 0px
+
+        &:hover
+          // color: $point-color
+          font-weight: 500
+  //
+// border: none
+// margin: 2rem
+// background: transparent
+// font-size: inherit
+// color: inherit
+// cursor: pointer
+
+
+
+  // .navi_menu
+  //   position: relative
+  //   padding: 1em 1.2em
+  //   transition: all 1s ease-in-out
+  //     &::after
+  //       content: ''
+  //       position: absolute
+  //       transition: all 1s ease-in-out
+  //       height: 3px;
+  //       bottom: 0;
+  //       left: 50%;
+  //       right: 50%
+  //       background: $point-color
+  //       &:hover::after
+  //         left: 0
+  //         right: 0

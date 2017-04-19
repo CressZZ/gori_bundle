@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>grid_system_test</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src = "../js/grid_view.js"></script>
+  <link rel="stylesheet" href="../fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/layout_main_carousel.css">
+</head>
+<body class="">
+
+  <!-- skip-nav -->
+  <a href="#" class="skip-nav">본문 바로가기</a>
+  <div class="wrapper">
+
+    <!-- Banner -->
+    <section class="banner">
+      <h2 class="hidden__heading">서비스 광고 영상 및 배너</h2>
+      <!-- Carousel -->
+      <div class="banner__carousel" id="carousel">
+        <!-- Carousel list -->
+        <ul class="banner__carousel__list">
+          <li>
+            <video autoplay="" class="video_play" loop="" muted="" width="100%">
+      				<source src="../../../media/video/sample.mp4" type="video/webm">
+      			</video>
+          </li>
+          <li class="row col-4-4 off"><img class="banner__carousel__list__item" src="img/cat.jpg" alt="홍보배너"></li>
+          <li class="row col-4-4 off"><img class="banner__carousel__list__item" src="img/cat.jpg" alt="소개"></li>
+        </ul>
+        <!-- Carousel nav ( ○○●○○ )  -->
+        <ul class="banner__carousel__nav col-2-4 push-1-4">
+          <li data-target="#carousel" data-slide-to="0"><a href="#" class="carousel">◦</a></li>
+          <li data-target="#carousel" data-slide-to="1"><a href="#" class="carousel active">●</a></li>
+          <li data-target="#carousel" data-slide-to="2"><a href="#" class="carousel">◦</a></li>
+        </ul>
+        <!-- Carousel buttons-->
+        <div class="banner__carousel__buttons ">
+          <button class="banner__carousel__left pd20" type="button"><i class="icon-left-open-big"></i></button>
+          <button class="banner__carousel__right col-4-4 pd20" type="button"><i class="icon-right-open-big"></i></button>
+          <!-- <button class="header__navi__btn-menu--open pd20 on" type="button" name="button"><i class="icon-menu"></i></button> -->
+        </div>
+      </div>
+      <!-- Banner-input -->
+      <!--모바일에서는 검색란 뺄것-->
+      <form action="submit" class="banner__search">
+        <input class="banner__search__input" type="search" autofocus placeholder="input your message"><button class="banner__search__btn" type="button">검색</button>
+      </form>
+    </section>
+
+</div>
+</body>
+</html>

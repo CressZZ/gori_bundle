@@ -1,0 +1,52 @@
+@import "total"
+
+
+
+// class
+.class-list__carousel__list
+  width: 500%
+  background-color: yellow
+  li
+    float: left
+    background-color: lime
+    border: 1px solid black
+    width: 220px
+    position: relative
+    text-align: center
+    .is_new
+      position: absolute
+      top: 5px
+      right: 5px
+      border: 1px solid black
+      padding: 1px 4px
+    .class__is_wish
+      position: absolute
+      top: 97px
+      right: 70px
+      width: 20px
+      background-color: red
+    .class__tutor-picture
+      width: 80px
+      margin-top: 40px
+    .class__intro
+      background-color: yellow
+    .class__intro__title
+      display: block
+      max-width: 100%
+      height: 60px
+      // white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      // height: 20px
+      background: pink
+      margin: 0 auto
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      -webkit-line-clamp: 2
+
+.class__intro
+  display: flex
+  justify-content: space-around
+  dd
+    float: left
+    font-size: 0.8rem

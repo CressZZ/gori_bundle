@@ -1,0 +1,330 @@
+
+
+// 헤더
+.header__logo
+  background: $main-color
+  color: $point-color
+  height: 72px
+  padding: 18px 0px
+  font-size: 38px
+  font-weight: 800
+
+
+.header__logo a
+ // padding: 10px
+
+
+.header__logo--title
+  padding: 0 20px
+
+.header__navi__btn-menu--open
+  height: 68px
+  float: right
+  color: $point-color
+
+
+.icon-menu, .icon-cancel
+  font-size: 30px
+  font-weight: 800
+  // padding: 15px 0px
+
+// // 모바일 메인 네비게이션
+.header__navi
+  position: relative
+  // background: #652
+
+.header__navi__btn-menu--close
+  // background-color: #ff5c5c
+  height: 64px
+  position: absolute
+  right: 0
+  color: $point-color
+
+.header__navi__lnb_list
+  // margin-top: 71px
+  font-size: $font-m-size
+
+  // position: absolute
+  // height: 168px
+
+
+
+.navi_menu_tutor
+  padding-top: 71px
+  font-size: $font-m-size
+  // height: 168px
+
+.navi_menu
+ display: inline-block
+
+.navi_menu_tutor
+  margin: 30px 0
+
+
+.navi_menu_service
+  margin: 28px 0
+  &::before
+    content: ''
+    background: #aaa
+    position: absolute
+    top: 144px
+    left: 20px
+    width: 90%
+    height: 1px
+
+.navi_menu_join , .navi_menu_login
+  padding: 17px 20px
+  text-align: center
+  border: 2px solid $point-color
+
+.navi_menu_join
+  background: $point-color
+  color: #fff
+
+.navi_menu_login
+  background: #fff
+  color: $point-color
+
+.navi_menu_tutor,
+.navi_menu_service
+  padding-left: 20px
+
+
+@media screen and (min-width: 600px)
+  .header__logo__wrapper, .header__navi__wrapper
+    max-width: 940px
+    margin: 0 auto
+
+
+  .header__logo--title
+    padding: 0 20px
+
+  .icon-menu, .icon-cancel
+    display: none
+
+  .header__navi__lnb_list
+    height: 168px
+    display: inline-block
+    margin-left: 100px
+    float: right
+    // background: #f28
+    padding: 14.5px 0
+    margin: 71px 0px
+
+  .header__navi__wrapper
+    position: relative
+
+  .header__navi
+    width: 100%
+
+  .header__navi ul
+    position: absolute
+    top: -88px
+    right: 5.5%
+
+  .navi_menu
+    display: inline
+
+  .navi_menu_tutor
+    padding-top: 0px
+    // font-size: $font-m-size
+    // height: 168px
+
+  .header__navi__lnb_list li,
+  .header__navi__lnb_list a
+    display: inline-block
+    vertical-align: middle
+    color: #fff
+    // &:hover
+    //   color: $point-color
+    // background: #f31
+
+
+  .navi_menu_tutor
+    margin: 30px 0
+
+  .navi_menu_join , .navi_menu_login
+    padding: 17px 30px
+    text-align: center
+    border: 0
+    background: none
+
+  .navi_menu_join
+    padding-left: 20px
+
+@media screen and (min-width: 996px)
+
+  .header__logo__wrapper, .header__navi__wrapper
+    max-width: 940px
+    margin: 0 auto
+    // background: #29a
+
+
+  .header__logo--title
+    padding: 0
+
+  .header__navi ul
+    position: absolute
+    top: -88px
+    right: 2.2%
+
+  .navi_menu_tutor
+    padding-top: 0px
+    // font-size: $font-m-size
+    // height: 168px
+
+
+
+
+
+
+
+
+<template lang="html">
+    <div>
+      <!-- skip-nav -->
+      <a href="#" class="skip-nav">본문 바로가기</a>
+        <!-- header -->
+        <header class="header row">
+          <!-- 고리 로고 -->
+          <div class="header__heading row">
+            <h1 class="header__logo col-4-4 col-12-12">
+              <div class="header__logo__wrapper">
+                <router-link to="/">
+                  <p class="header__logo--title">Gori</p>
+                </router-link>
+              </div>
+            </h1>
+            <!-- menu -->
+            <!--  <ul class="header__navi__lnb_list off<<<<<">-->
+            <nav class="header__navi">
+              <button class="header__navi__btn-menu--open pd20 on" type="button" name="button"><i class="icon-menu"></i></button>
+              <button class="header__navi__btn-menu--close pd20 off" type="button" name="button"><i class="icon-cancel"></i></button>
+              <div class="header__navi__wrapper">
+                <ul class="header__navi__lnb_list">
+                  <li><a href="#" class="navi_menu navi_menu_tutor ">튜터등록</a></li>
+
+                  <router-link tag="li" to="/lec">
+                    <a href="#" class="navi_menu navi_menu_service ">서비스소개</a>
+                  </router-link>
+
+                  <li><a href="#" class="navi_menu navi_menu_join col-2-4 col-12-12 is_logout " @click = "joinvisible">회원가입</a></li>
+                  <li><a href="#" class="navi_menu navi_menu_mypage is_login off ">마이페이지</a></li>
+                  <li>
+                    <a href="#" class="navi_menu navi_menu_login col-2-4 push-2-4 col-12-12 push-12-12 is_logout " @click = "loginvisible">로그인
+                    </a>
+                  </li>
+                  <li><a href="#" class="navi_menu navi_menu_logout is_login off">로그아웃</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+   </div>
+</template>
+
+
+
+
+
+      @media screen and (max-width: 599px)
+        .header__heading
+          background: $main-color
+          padding: 0 20px
+          height: 72px
+          display: flex
+          justify-content: space-between
+          align-items: center
+
+        .header__logo
+          color: $point-color
+          font-size: 38px
+          font-weight: 800
+
+        .header__navi__btn-menu--open
+          height: 68px
+          float: right
+          color: $point-color
+          .icon-menu
+            font-size: 30px
+            font-weight: 800
+
+        .header__navi
+          // position: relative
+          background: #652
+          display: block
+
+        .header__navi__btn-menu--close
+          // background-color: #ff5c5c
+          height: 64px
+          position: absolute
+          right: 0
+          color: $point-color
+          .icon-cancel
+            font-size: 30px
+            font-weight: 800
+
+        .header__navi__lnb_list>li
+          height: 72px
+          font-size: $font-m-size
+          &:hover
+            color: $point-color
+
+
+
+      @media screen and (min-width: 600px)
+        .header
+          max-width: 940px
+          margin: 0 auto
+          padding-bottom: 24px
+
+
+
+<template lang="html">
+    <div>
+      <!-- skip-nav -->
+      <a href="#" class="skip-nav">본문 바로가기</a>
+        <!-- header -->
+        <header class="header">
+          <!-- 고리 로고 -->
+          <div class="header__heading">
+
+            <h1 class="header__logo">
+              <div class="header__logo__wrapper">
+                <router-link to="/">
+                  <p class="header__logo--title">Gori</p>
+                </router-link>
+              </div>
+            </h1>
+            <button class="header__navi__btn-menu--open pd20 on" type="button" name="button"><i class="icon-menu"></i></button>
+
+          </div>
+
+
+            <!-- menu -->
+            <!--  <ul class="header__navi__lnb_list off<<<<<">-->
+            <nav class="header__navi">
+              <button class="header__navi__btn-menu--close pd20 off" type="button" name="button"><i class="icon-cancel"></i></button>
+              <div class="header__navi__wrapper">
+                <ul class="header__navi__lnb_list">
+                  <li><a href="#" class="navi_menu navi_menu_tutor ">튜터등록</a></li>
+
+                  <router-link tag="li" to="/lec">
+                    <a href="#" class="navi_menu navi_menu_service ">서비스소개</a>
+                  </router-link>
+
+                  <li><a href="#" class="navi_menu navi_menu_join col-2-4 col-12-12 is_logout " @click = "joinvisible">회원가입</a></li>
+                  <li><a href="#" class="navi_menu navi_menu_mypage is_login off ">마이페이지</a></li>
+                  <li>
+                    <a href="#" class="navi_menu navi_menu_login col-2-4 push-2-4 col-12-12 push-12-12 is_logout " @click = "loginvisible">로그인
+                    </a>
+                  </li>
+                  <li><a href="#" class="navi_menu navi_menu_logout is_login off">로그아웃</a></li>
+                </ul>
+              </div>
+            </nav>
+        </header>
+
+   </div>
+</template>

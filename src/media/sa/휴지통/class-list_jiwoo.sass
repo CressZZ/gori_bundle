@@ -1,0 +1,195 @@
+.wrapper
+  background-color: $bg-color
+
+.class-list__heading_wrapper
+  padding: 72px 0
+  color: $font-main-color
+
+.class-list__heading
+  font-size: $font-xl-size
+
+.class-list__subtitle
+  font-size: $font-m-size
+
+.class-list
+  text-align: center
+
+.class-list__carousel
+  position: relative
+  // background-color: #2cd242
+  // overflow: hidden
+
+.class-list__carousel__list
+  // white-space: nowrap
+  // overflow: hidden !important
+  // padding: 0 auto
+  width: 400%
+  // background-color: #9be856
+  transform: translate(0)
+  li
+    display: inline-block
+    float: left
+    margin: 0.2%
+    width: 12%
+    min-width: 100px
+    border: 1px solid $font-faint-color
+    position: relative
+  li:first-child
+    // background: #232
+    margin-left: 0.3%
+
+.is_new
+  font-size: 3px
+  position: absolute
+  top: 0
+  right: 0
+  color: #fff
+  background-color: rgb(57, 57, 57)
+  padding: 1px 4px
+
+.class__wish
+  background: #102
+  width: 25px
+  height: 25px
+  border-radius: 50%
+
+.is_wish
+  position: absolute
+  top: 31%
+  left: 53%
+
+.icon-heart
+  font-size: $font-m-size
+  color: red
+
+.class__tutor-picture
+  // background: #162
+  width: 70px
+  height: 70px
+  margin-top: 40px
+  border-radius: 50%
+
+.class__tutor-name
+  font-size: $font-m-size
+  padding: 8px 0
+
+.class__star-total
+  // margin-bottom: 20px
+  display: flex
+  justify-content: center
+  font-size: $font-s-size
+
+.start-total-num
+  padding: 0 0 0 3px
+
+.icon-star
+  color: gold
+
+.icon-star::before
+  margin: 0
+
+.class__intro
+  font-size: 5px
+
+.class__intro__title
+  font-size: $font-m-size
+  font-weight: 600
+  // overflow: hidden
+  white-space: normal
+  padding: 20px
+  text-align: center
+  // background: #163
+  @include say-dot
+
+@for $i from 1 through 4
+  .class-list__carousel__list li
+    background: #fff
+
+
+@for $i from 2 through 4
+  .class__intro
+    dd
+      &:nth-child(#{$i})
+        &::before
+          content: "・"
+          // padding: 0 1px
+
+.class__intro
+  width: 100%
+  padding: 19px 20px
+  word-spacing: 8px
+  border-top: 1px solid $font-faint-color
+  flex-flow: row nowrap
+
+.class__intro dd
+  display: inline-block
+
+.class-list__carousel__more
+  color: #fff
+  margin: 30px
+  padding: 10px 30px
+  border-radius: 2px
+  background-color: $point-color
+
+.class-list__carousel__left, .class-list__carousel__right
+  display: none
+
+
+@media screen and (min-width: 600px)
+
+
+  .class-list__carousel__list
+    padding: 0 auto
+    // white-space: nowrap
+    overflow: hidden !important
+    // padding: 0 auto
+    width: 940px
+
+  .class-list__carousel__list li
+    display: inline-block
+    float: left
+    // min-width: 100px
+    // border: 1px solid $font-faint-color
+    // position: relative
+    li:first-child
+      // margin-left: 0px
+      // background: #185
+
+
+
+  .class-list
+    text-align: center
+    // background-color: rgb(212, 32, 235)
+    width: 940px
+    margin: 0 auto
+
+  .class-list__carousel
+    position: relative
+
+
+  .class-list__carousel__list
+    white-space: nowrap
+    width: 199.7%
+    li
+      margin: 0 5px
+
+  .class-list__carousel__left, .class-list__carousel__right
+    // background-color: red
+    display: flex
+    justify-content: center
+    width: 50px
+    position: relative
+    top: -180px
+    // left: 0
+
+  .icon-left-open-big, .icon-right-open-big
+      font-size: 5rem
+
+  .class-list__carousel__left
+    left: -100px
+    // font-size: 3rem
+    display: block
+  .class-list__carousel__right
+    // left: 1220px
+    right: -50px
+    display: block

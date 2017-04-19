@@ -1,0 +1,94 @@
+
+@media screen and (max-width: 689px)
+  .speaking
+    font-size: $font-m-size
+    color: $font-main-color
+    //fixed(nav, 수강신청)을 위한 마진 바텀q!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    margin: 24px 20px 0 10px
+    // min-width: 380px
+    @include bording-mobile
+    position: relative
+    .speaking__tutor-picture
+      height: 72px
+      width: 72px
+      border-radius: 50%
+
+    .speaking__wrapper
+      margin: 0 1%
+
+
+    .speaking__tutor-speaking
+      font-size: $font-s-size
+      margin-left: 100px
+      margin-right: 0px
+      position: relative
+      height: 72px
+      width: 79%
+      margin-left: 22%
+      padding: 10px 10px 10px 20px
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: $font-faint-color
+      border-radius: 8px
+
+    .speaking__tutor-speaking::before
+      width: 0
+      border-top: 15px solid transparent
+      border-right: 30px solid $font-faint-color
+      border-bottom: 15px solid transparent
+      content: ""
+      display: block
+      position: absolute
+      left: -20px
+      top: 20px
+
+    .speaking__descrip
+      margin: 0 0 0 100px
+
+@media screen and (min-width: 690px)
+
+  .speaking
+    font-size: $font-m-size
+    color: $font-main-color
+    background: #fff
+    @include bording-pc
+    max-width: 1200px
+    padding: 15px 20px 10px 20px
+    margin: 0 auto
+
+  .speaking__tutor-picture
+    height: 72px
+    width: 72px
+    border-radius: 50%
+    position: relative
+    z-index: 1
+    filter: drop-shadow(1px 1px 0.3px rgba(1, 1, 1, 0.2))
+
+
+
+  .speaking__tutor-speaking
+    font-size: $font-s-size
+    height: 72px
+    padding: 10px 10px 10px 0
+    display: flex
+    align-items: center
+    background-color: $font-faint-color
+    border-radius: 5px
+
+
+  .speaking__tutor-speaking::before
+    width: 0
+    border-top: 15px solid transparent
+    border-right: 30px solid $font-faint-color
+    border-bottom: 15px solid transparent
+    content: ""
+    display: block
+    position: relative
+    left: -30px
+    height: 0
+
+
+
+  .speaking__descrip
+    margin: 12px 0 0 80px

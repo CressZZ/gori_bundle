@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gori 과외매칭서비스</title>
+  <style type="text/css">
+      #map { height: 300px; }
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src = "../js/grid_view.js"></script>
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
+    <link rel="stylesheet" href="../css/enroll-index.css">
+</head>
+<body>
+  <div class="">
+
+		<table class="">
+			<caption>나의 정보</caption>
+			<colgroup>
+				<col width="">
+				<col width="">
+			</colgroup>
+			<tbody>
+			<tr>
+				<th scope="row"><p>이름</p></th>
+				<td>
+					<p>홍길동</p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="col"><p>닉네임</p></th>
+				<td>
+          <p class="">
+            <input type="text">
+          </p>
+        </td>
+			</tr>
+			<!-- <tr>
+				<th scope="col"><p>비밀번호</p></th>
+				<td>
+					<div class="pw__wrap">
+						<p class="">
+							<label for="user__pw">현재 비밀번호</label>
+							<input v-model = "joinInfo.password1" class="" type="password" placeholder="현재비밀번호를 입력">
+						</p>
+						<p class="">
+							<label v-model = "joinInfo.password2" for="user__pw">새 비밀번호</label>
+              <input class="" type="password" placeholder="새비밀번호를 입력">
+						</p>
+						<p class="">
+							<label for="user__pw-ck">비밀번호 확인</label>
+              <input class="" type="password" placeholder="새비밀번호를 한 번더 입력">
+						</p>
+					</div>
+				</td>
+			</tr> -->
+			<tr>
+				<th scope="col"><p>연락처</p></th>
+				<td>
+					<div class="">
+
+					<input type="tel" pattern="[0-9]{10}" name="tel" title="Phone Number?!?!"/>
+
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th scope="col"><p>이메일</p></th>
+				<td>
+					<div class="">
+						<input type="email" placeholder="foo@bar.com" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th scope="col"><p>커버사진</p></th>
+				<td>
+          <input type="file" multiple="">
+				</td>
+			</tr>
+
+			</tbody>
+		</table>
+    <table class="">
+      <caption>튜터 정보</caption>
+      <colgroup>
+        <col width="">
+        <col width="">
+      </colgroup>
+        <tbody>
+          <tr>
+            <th scope="col"><p>인증이미지</p></th>
+            <td>
+              <input type="file" multiple="">
+            </td>
+          </tr>
+          <tr>
+            <th scope="col"><p>인증수단</p></th>
+            <td>
+                <label class="">
+                  <select @change = "" v-model="" class="">
+                    <option value="UN">대학생</option>
+                    <option value="GR">대학원생</option>
+                    <option value="ID">신분증</option>
+                  </select>
+                </label>
+            </td>
+          </tr>
+          <tr>
+            <th scope="col"><p>인증수단</p></th>
+            <td>
+              <label class="">
+                <select @change = "" v-model="" class="">
+                  <option value="G">졸업</option>
+                  <option value="E">재학</option>
+                  <option value="I">수료</option>
+                </select>
+              </label>
+            </td>
+          </tr>
+      <tr>
+        <th scope="col"><p>인증이미지</p></th>
+        <td>
+          <input type="file" multiple="">
+        </td>
+      </tr>
+      <tr>
+        <th scope="col"><p>학교정보</p></th>
+        <td><p>학교정보</p></td>
+      </tr>
+      <tr>
+        <th scope="col"><p>전공</p></th>
+        <td><p>전공</p></td>
+      </tr>
+      <tr>
+        <th scope="col"><p>학적상태</p></th>
+        <td><p>학적상태</p></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <input type="submit">
+  </div>
+</body>
+</html>

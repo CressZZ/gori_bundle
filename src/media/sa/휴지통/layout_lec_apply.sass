@@ -1,0 +1,234 @@
+@import "total"
+@import "layout_lec_summary"
+
+// 헤더
+.header__logo
+  background: $main-color
+  color: $point-color
+  height: 72px
+  padding: 18px 0px
+  font-size: 38px
+  font-weight: 800
+
+
+.header__navi__btn-menu--open
+  height: 68px
+  float: right
+  color: $point-color
+
+
+.icon-menu, .icon-cancel
+  font-size: 30px
+  font-weight: 800
+  // padding: 15px 0px
+
+// // 모바일 메인 네비게이션
+.header__navi
+  position: relative
+
+.header__navi__btn-menu--close
+  // background-color: #ff5c5c
+  height: 64px
+  position: absolute
+  right: 0
+  color: $point-color
+
+.header__navi__lnb_list
+  margin: 71px 0
+  font-size: $font-m-size
+  // height: 168px
+
+.navi_menu
+ display: inline-block
+
+.navi_menu_tutor
+  margin: 30px 0
+
+
+.navi_menu_service
+  margin: 28px 0
+  &::before
+    content: ''
+    background: #aaa
+    position: absolute
+    top: 148px
+    left: 20px
+    width: 90%
+    height: 1px
+
+.navi_menu_join , .navi_menu_login
+  padding: 17px 0
+  text-align: center
+  border: 2px solid $point-color
+
+.navi_menu_join
+  background: $point-color
+  color: #fff
+
+.navi_menu_login
+  background: #fff
+  color: $point-color
+
+.navi_menu_tutor,
+.navi_menu_service
+  padding-left: 20px
+
+/////////////
+
+.apply
+  font-size: $font-m-size
+  // background: #104
+
+.fontello
+  color: $main-color
+  font-size: 15px
+  vertical-align: text-top
+  text-align: center
+
+
+.apply__buttons
+ position: fixed
+
+
+.apply__buttons__btn-wish, .apply__buttons__btn-apply
+  width: 220px
+  font-size: $font-m-size
+  padding: 17px 0
+  text-align: center
+  border: 2px solid $point-color
+
+.apply__buttons__btn-apply
+  background: $point-color
+  color: #fff
+
+.apply__buttons__btn-wish
+  background: #fff
+  color: $point-color
+
+.apply__info
+  padding: 20px
+  color: $font-main-color
+
+.apply__info>li
+  // background: #187
+  padding:  10px 0px
+
+.apply__info>li>span
+ // background: #109
+ float: right
+ color: $font-sub-color
+
+
+@media screen and (min-width: 500px)
+
+  // .header__navi__lnb
+  //   display: block
+
+  .icon-menu, .icon-cancel
+    display: none
+
+  .header__navi__lnb_list
+    margin-top: 48px
+    height: 168px
+
+  .header__navi__lnb_list
+    display: inline-block
+    margin-left: 100px
+    float: right
+    padding: 14.5px 0
+    margin-top: 0px
+    height: 0px
+
+
+  .navi_menu
+    display: inline
+
+  .header__navi__lnb_list li,
+  .header__navi__lnb_list a
+    display: inline-block
+    vertical-align: middle
+    color: #fff
+    // padding: 20px
+
+  .header__navi__btn-menu--close
+    // background-color: #ff5c5c
+    height: 64px
+    position: absolute
+    right: 0
+    // color: $point-color
+
+  .header__navi__lnb_list
+    margin: 71px 0
+    // background: #552
+    // display: inline
+    height: 168px
+
+  // .navi_menu
+  //  display: inline
+
+  .navi_menu_tutor
+    margin: 30px 0
+
+  .navi_menu_service
+    margin: 28px 0
+    &::before
+      display: none
+
+  .navi_menu_join , .navi_menu_login
+    padding: 17px 0
+    text-align: center
+    // border: 2px solid $font-main-color
+
+  .navi_menu_join , .navi_menu_login
+    // padding: 17px 0
+    // text-align: center
+    border: 0
+
+  .navi_menu_join
+    background: none
+    color: $font-main-color
+
+  .navi_menu_login
+    background: none
+    color: $font-main-color
+
+
+  .header__navi ul
+    position: absolute
+    top: -88px
+    right: 40px
+    // white-space: nowrap
+    // display: none
+
+  .navi_menu_join
+    padding-left: 20px
+
+  //apply
+
+  .apply__wrapper
+    width: 380px
+    // height: 289px
+    border: 1px solid $font-faint-color
+    border-bottom: 1px solid #fff
+
+  .apply__info
+    // background: #321
+
+  .apply__buttons
+   position: fixed
+
+  .apply__buttons__btn-wish, .apply__buttons__btn-apply
+    // width: 160px
+    width: 190px
+    font-size: $font-m-size
+    padding: 15px 0
+    text-align: center
+    border: 2px solid $point-color
+
+  .apply__buttons__btn-apply
+    background: $point-color
+    color: #fff
+
+  .apply__buttons__btn-wish
+    background: #fff
+    color: $point-color

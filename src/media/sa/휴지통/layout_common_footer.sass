@@ -1,0 +1,84 @@
+@import "total"
+
+
+
+// footer
+
+.footer
+  background: $font-main-color
+  padding: 26px 20px
+  color: #fff
+  font-size: $font-m-size
+
+.footer__section
+ position: relative
+
+.footer__title
+  display: inline-block
+  padding: 12px
+
+.icon-plus
+  float: right
+  right: 20px
+  padding: 10px
+  font-size: $font-l-size
+
+.footer__right__address
+  padding: 10px
+  font-style: normal
+  line-height: 30px
+  font-size: $font-s-size
+
+.footer__right__address >span
+  vertical-align: middle
+
+.footer__right__logo, .footer__section>ul
+  display: none
+
+@media screen and (min-width: 500px)
+  // footer
+
+  .footer
+    background: $font-main-color
+    padding: 26px 20px
+    color: #fff
+    white-space: nowrap
+
+  .footer__left
+    // display: inline-block
+
+  .footer__title
+    display: inline-block
+    padding: 12px 0
+
+  .footer__section__company,
+  .footer__section__policies,
+  .footer__section__Support
+    // background: #323
+    display: inline-block
+    vertical-align: top
+
+  .footer__right__logo
+    // padding: 10px 0
+    font-size: 40px
+    font-weight: 800
+    color: $point-color
+
+  .footer__right
+    display: inline-block
+
+  .footer__right__address
+    // padding: 10px
+    font-style: normal
+    line-height: 30px
+    font-size: $font-s-size
+
+  .footer__section>ul>li
+    // background: #342
+    line-height: 30px
+
+  .icon-plus
+    display: none
+
+  .footer__right__logo, .footer__section>ul
+    display: block

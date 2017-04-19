@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gori 과외매칭서비스</title>
+  <style type="text/css">
+      #map { height: 300px; }
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src = "../js/grid_view.js"></script>
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
+    <link rel="stylesheet" href="../css/enroll-index.css">
+</head>
+<body>
+  <div class="wrapper-enroll">
+    <section class="profile">
+    <div class="profile__wrapper__user">
+    <h2 class="hidden__heading">profile</h2>
+		<div class="member__info">
+			<img src="#" alt="프로필이미지" class="member__info-img">
+			<!-- <a href="#" title="프로필 이미지 팝업" class="member__info-img__edit">EDIT</a> -->
+      <p class="member__username">홍길동님</p>
+		</div>
+
+  <table class="profile__list">
+ 	<caption class="hidden__heading">회원정보</caption>
+   <tbody class="profile__list__detail">
+       <tr>
+         <th class="profile__list__detail-id">아이디</th>
+         <td>아이디</td>
+       </tr>
+       <tr>
+     		<th class="profile__list__detail-nickname">닉네임</th>
+     		<td>닉네임란</td>
+     	</tr>
+     	<tr>
+     		<th>전화번호</th>
+     		<td>01001010100</td>
+     	</tr>
+   </tbody>
+  </table>
+</div>
+
+    <div class="member__info__lec">
+      <h3 class="hidden__heading">나의수업정보</h3>
+      <ul class="member__info__lec">
+          <li class="member__info__lec-list member__info__lec-took">
+            <a href="#">
+            <p>받은수업신청서</p>
+            <strong>0건</strong>
+          </a>
+          </li>
+          <li class="member__info__lec-list member__info__lec-apply">
+            <a href="#">
+            <p>신청한수업</p>
+            <strong>0건</strong>
+          </a>
+          </li>
+          <li class="member__info__lec-list member__info__lec-wish">
+            <a href="#">
+            <p>위시리스트</p>
+            <strong>0건</strong>
+          </a>
+          </li>
+          <li class="member__info__lec-list member__info__lec-my">
+            <a href="#">
+            <p>내수업</p>
+            <strong>0건</strong>
+          </a>
+          </li>
+        </ul>
+    </div>
+	</section>
+ <section class="enroll-lec-all">
+  <h2 class="enroll-lec__heading">수업등록</h2>
+    <fieldset class="blind">
+			<div class="">
+				<div class="">
+          <h3 class="">수업제목</h3>
+					<input type="text" placeholder="과목명을 입력해주세요" class="">
+				</div>
+						<div class="enroll-lec__category">
+              <h3>카테고리</h3>
+              <label>
+                <select>
+                  <option>카테고리</option>
+                  <option>헬스/뷰티</option>
+                  <option>외국어</option>
+                  <option>컴퓨터</option>
+                  <option>미술/음악</option>
+                  <option>스포츠</option>
+                  <option>전공/취업</option>
+                  <option>이색취미</option>
+                  <option>기타</option>
+                </select>
+              </label>
+            </div>
+          <div>
+          <h3 >수업형태</h3>
+            <label class="enroll-lec__type">
+              <p>1:1수업</p><input type="radio">
+              <p>그룹수업</p><input type="radio">
+              <p>원데이</p><input type="radio">
+            </label>
+          </div>
+          <div class="">
+          <h3 class="">커버사진</h3>
+          <label>
+          <input type="file" multiple="">
+          </label>
+          </div>
+          <div class="">
+            <h3 class="">튜터소개</h3>
+  					<input type="text" placeholder="내용을 입력해주세요" class="">
+  				</div>
+          <div class="">
+            <h3 class="">수업소개</h3>
+  					<input type="text" placeholder="내용을 입력해주세요" class="">
+  				</div>
+          <div class="enroll-lec__curriculum">
+            <h3 class="">커리큘럼</h3>
+            <p class="enroll-lec__curriculum1">1회차</p>
+  					<input type="text" placeholder="내용을 입력해주세요" class="">
+            <p class="enroll-lec__curriculum2">2회차</p>
+  					<input type="text" placeholder="내용을 입력해주세요" class="">
+  				</div>
+					</div>
+		</fieldset>
+ </section>
+ <section class="enroll-lec__time-cost">
+  <h2 class="enroll-lec__time-cost__heading">시간 및 비용 설정</h2>
+    <fieldset class="blind">
+			<div class="row_group">
+        <div>
+        <h3 class="">수업형태</h3>
+        <label class="enroll-lec__day">
+          <p>월</p><input type="checkbox">
+          <p>화</p><input type="checkbox">
+          <p>수</p><input type="checkbox">
+          <p>목</p><input type="checkbox">
+          <p>금</p><input type="checkbox">
+          <p>토</p><input type="checkbox">
+          <p>일</p><input type="checkbox">
+        </label>
+        </div>
+				<div class="">
+          <h3 class="">수업시간</h3>
+  					<input type="text" placeholder="수업가능한 시간을 적어주세요 예:9:00~11:00/13:00~14:00" class="">
+				</div>
+				<div class="">
+          <h3 class="">기본시간</h3>
+					<input type="text" placeholder="기본수업시간을 적어주세요 예: 1시간30분" class="">
+				</div>
+				<div class="">
+          <h3 class="">수업횟수</h3>
+					<input type="text" placeholder="총 수업 횟수를 적어주세요" class="">
+				</div>
+				<div class="enroll-lec__cost">
+          <h3 class="">시간당 가격</h3>
+					<input type="text" placeholder="1시간 당 가격을 적어주세요" class="">
+				</div>
+				<div class="">
+          <h3 class="">수업비용</h3>
+					<input type="text" placeholder="총 수업 비용을 안내합니다" class="">
+				</div>
+					</div>
+		</fieldset>
+ </section>
+ <section class="enroll-lec-location">
+  <h2 class="enroll-lec-location__heading">장소등록</h2>
+    <fieldset class="blind">
+			<div class="">
+				<div class="">
+          <h3 class="">대표장소</h3>
+              <label>
+                <select>
+                  <option>대표장소</option>
+                  <option>고려대</option>
+                  <option>서울대</option>
+                  <option>연세대</option>
+                  <option>홍익대</option>
+                  <option>이화여대</option>
+                  <option>부산대</option>
+                  <option>중앙대</option>
+                  <option>건국대</option>
+                  <option>한양대</option>
+                  <option>강남</option>
+                  <option>신촌</option>
+                  <option>사당</option>
+                  <option>잠실</option>
+                  <option>종로</option>
+                  <option>혜화</option>
+                  <option>용산</option>
+                  <option>합정</option>
+                  <option>목동</option>
+                  <option>기타</option>
+                </select>
+              </label>
+            </div>
+          <div class="enroll-lec-location-notice-qa">
+            <p class="enroll-lec-location-notice-q">장소 및 기타 비용이 있나요?</p>
+            <label class="enroll-lec-location-notice-a">
+              <input type="radio">
+              <p>예, 있습니다.</p>
+              <input type="radio">
+              <p>아니오, 없습니다.</p>
+            </label>
+          </div>
+          <div class="enroll-lec-location__heading-comment">
+            <h3 class="">장소 코멘트</h3>
+  					<input type="text"
+            placeholder="신청자 분들이 수업 장소와 시간에 대해 알면 좋은 사항들이 있나요? 간단한 코멘트를 남겨주세요"
+            class="">
+  				</div>
+					</div>
+		</fieldset>
+ </section>
+ <div class="enroll-btn-all">
+ <button class="enroll-btn">등록하기</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

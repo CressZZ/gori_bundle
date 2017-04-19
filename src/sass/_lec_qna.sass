@@ -1,0 +1,128 @@
+
+.qna__heading
+  margin-bottom: 24px
+.qna__list
+  margin-bottom: 24px
+
+
+.qna__list__q__writer, .qna__list__a__writer
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 20px
+  font-size: $font-s-size
+  vertical-align: text-bottom
+  span
+    display: flex
+    justify-content: space-between
+    align-items: center
+    div
+      border-radius: 50%
+      text-align: center
+      line-height: 11px
+      color: white
+      font-weight: 700
+      background-color: rgba(29, 29, 29, 0.73)
+      width: 24px
+      height: 24px
+      padding: 6.5px
+      margin-right: 5px
+
+
+.qna__list__a__writer , .qna__list__q__descrip
+  padding-left: 30px
+  margin-bottom: 24px
+
+.qna__list__a__descrip
+  padding-left: 60px
+
+.qna__list__q__descrip,.qna__list__a__descrip
+  // margin-bottom: 24px
+  color: $font-sub-color
+
+.qna__list__q__date, .qna__list__a__date
+  font-size: $font-xs-size
+  color: $font-sub-color
+
+.qna__page
+  display: flex
+  justify-content: center
+  a
+    width: 35px
+    display: flex
+    justify-content: center
+  a:first-child::before
+    content: "<"
+    display: block
+    margin-right: 10px
+  a:last-child::after
+    content: ">"
+    display: block
+    margin-left: 10px
+
+@media screen and (max-width: 689px)
+  .qna
+    font-size: $font-m-size
+    padding: 0 20px
+    padding-bottom: 48px
+    // @include bording-mobile
+  .qna__list__q
+    margin-bottom: 24px
+    @include bording-mobile ($font-faint-color, dashed)
+    &:last-child
+      &::after
+        border-bottom: 0
+  .qna__write
+    margin-bottom: 24px
+    textarea
+      padding: 5px
+      border-radius: 4px 0 0 4px
+      display: block
+      float: left
+      width: 75%
+      max-width: 75%
+      height: 72px
+      background-color: $bg-color
+    button
+      display: block
+      width: 25%
+      height: 72px
+      color: #fff
+      font-size: $font-m-size
+      background-color: $point-color
+      border-radius: 0 4px 4px 0
+
+
+@media screen and (min-width: 690px)
+  .qna
+    font-size: $font-m-size
+    max-width: 1200px
+    padding: 0 20px 0 20px
+    margin: 0 auto
+    @include bording-pc (transparent)
+  .qna__heading
+    margin-bottom: 24px
+  .qna__list__q
+    margin-bottom: 24px
+    @include bording-pc ($font-faint-color, dashed)
+    &:last-child
+      &::after
+        border-bottom: 0
+  .qna__write
+    margin-bottom: 24px
+    textarea
+      padding: 5px
+      border-radius: 4px 0 0 4px
+      display: block
+      float: left
+      width: 80%
+      height: 72px
+      background-color: $bg-color
+    button
+      display: block
+      width: 20%
+      height: 72px
+      color: #fff
+      font-size: $font-m-size
+      background-color: $point-color
+      border-radius: 0 4px 4px 0

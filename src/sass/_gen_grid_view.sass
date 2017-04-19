@@ -1,0 +1,18 @@
+
+
+@media screen and (min-width: 690px)
+
+  #app::after
+    // margin: auto
+
+    display: none
+    background: linear-gradient(to right, transparent 20px, rgba(#ff3030, 0.5) 20px, rgba(#ff3030, 0.5) 80px), linear-gradient(to bottom, transparent 23px, rgba(black, 0.8) 23px)
+    background-size: 80px 1px, 1px 24px
+    content: ""
+    z-index: 99999
+    height: 100%
+    width: 100%
+    position: fixed
+    top: 0
+  #app.gridon::after
+    display: block

@@ -1,0 +1,190 @@
+<template >
+  <section class="enroll-myinfo-all-tutor">
+    <h2 class="enroll-myinfo__heading">튜터정보</h2>
+    <form class="">
+      <fieldset>
+          <legend class="blind">튜터정보 작성폼</legend>
+    <table class="enroll-myinfo__tutor">
+      <caption class="blind">튜터 정보</caption>
+        <tbody>
+          <tr>
+            <th class="th4"><p>인증수단</p></th>
+            <td>
+                <label class="">
+                  <select  @change = "" v-model = "tutorUpdate.verification_method" class="">
+                    <option value="UN">대학생</option>
+                    <option value="GR">대학원생</option>
+                    <option value="ID">신분증</option>
+                  </select>
+                </label>
+            </td>
+          </tr>
+          <tr>
+            <th class="th4"><p>학적상태</p></th>
+            <td>
+              <label class="">
+                <select @change = "" v-model="tutorUpdate.current_status" class="">
+                  <option value="G">졸업</option>
+                  <option value="E">재학</option>
+                  <option value="I">수료</option>
+                </select>
+              </label>
+            </td>
+          </tr>
+      <tr>
+        <th class="th4"><p>인증사진</p></th>
+        <td class="file_upload">
+          <input @change="sync2" type="file" multiple="">
+        </td>
+      </tr>
+      <tr>
+        <th class="th4"><p>학교정보</p></th>
+        <td>
+          <p class="">
+            <input v-model = "tutorUpdate.school" type="text">
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th class="th4"><p>전공과목</p></th>
+        <td>
+          <p class="">
+            <input v-model = "tutorUpdate.major" type="text">
+          </p>
+        </td>
+      </tr>
+      <!-- <tr>
+        <th class="th4"><p>학적상태</p></th>
+        <td>
+          <p class="">
+            <input v-model = "tutorUpdate.current_status" type="text">
+          </p>
+        </td>
+      </tr> -->
+
+      </tbody>
+    </table>
+  </fieldset>
+</form>
+    <button type="button" class="enroll__register-btn" @click="register"> 등록 </button>
+  </section>
+</template>
+
+<!-- v-model = "userUpdate.profile_image" -->
+
+<script>
+export default {
+  data(){
+    return{
+      userinfo: {},
+      tutorUpdate:{
+        verification_method: "",
+        verification_images: "",
+        school: "",
+        major: "",
+        current_status: ""
+      },
+      curriculumnum: 2,
+      tempcurriculum:
+        {
+          talent_pk: "",
+          information: ""
+        },
+
+      curriculum:[],
+    }
+  },
+  props: ["detailAll"],
+  created(){
+    this.$http.get('member/profile/user/', {
+    headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+    })
+    .then(function(response){
+      console.log("user-detail-response:",response)
+
+      return response.json()
+    })
+    .then(function(data){
+      this.userinfo = data
+      console.log("user-name:",data.name)
+      // console.log("data:",data)
+    })
+    .catch(function(err){
+      console.log("err:",err.bodyText)
+    })
+
+  },
+  methods: {
+    sync2: function(e) {
+    e.preventDefault()
+    this.tutorUpdate.verification_images = e.target.files[0]
+
+  },
+    // userRegister(){
+    //   this.$router.push({ path: 'registerDetail' })
+    //   const data = new FormData()
+    //   data.append('name', this.userUpdate.name)
+    //   data.append('nickname', this.userUpdate.nickname)
+    //   data.append('profile_image', this.userUpdate.profile_image)
+    //   data.append('cellphone', this.userUpdate.cellphone)
+    //   console.log("data:",data)
+    //
+    //   this.$http.patch('member/update/user/',data,  {
+    //   headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+    //   })
+    //   .then(function(response){
+    //     console.log("register-response:",response)
+    //     this.userUpdate.name= ""
+    //     this.userUpdate.nickname= ""
+    //     this.userUpdate.profile_image= ""
+    //     this.userUpdate.cellphone= ""
+    //
+    //   })
+    //   .then(function(data){
+    //     console.log("register-data:",data)
+    //   })
+    //   .catch( error => {
+    //     console.error("error!!",error)
+    //     alert(error.bodyText)
+    //   });
+    //
+    // },
+    register(){
+
+
+      const data = new FormData()
+
+      this.$http.post('member/register/tutor/',data,  {
+      headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+      })
+      .then(function(response){
+        console.log("register-response:",response)
+        // this.userUpdate.name= ""
+        this.userUpdate.nickname= ""
+        this.userUpdate.profile_image= ""
+        this.userUpdate.cellphone= ""
+
+        this.tutorUpdate.verification_method= ""
+        this.tutorUpdate.verification_images= ""
+        this.tutorUpdate.school= ""
+        this.tutorUpdate.current_status= ""
+        this.tutorUpdate.current_status= ""
+
+      })
+      .then(function(data){
+        console.log("register-data:",data)
+      })
+      .catch( error => {
+        console.error("error!!",error)
+        alert(error.bodyText)
+      });
+
+    },
+
+
+  },
+}
+</script>
+
+<style lang="css">
+</style>

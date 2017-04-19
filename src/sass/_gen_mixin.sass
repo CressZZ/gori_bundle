@@ -1,0 +1,41 @@
+// 이미지 센터링 하는거
+@mixin centering_img($top: 50%, $left: 50%)
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-$top, -$left)
+
+@mixin say_dot
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: 2
+
+
+
+// 추가
+@mixin bording-mobile ($color: $font-faint-color, $type: solid)
+  &::after
+    content: ""
+    display: block
+    width: 100%
+    padding-bottom: 24px
+    margin-bottom: 24px
+    border-bottom: 1px $type $color
+
+@mixin bording-mobile-2nd  ($color: $font-faint-color, $type: solid)
+  &::after
+    content: ""
+    display: block
+    margin: 0 24px 24px 24px
+    padding-bottom: 24px
+    border-bottom: 1px $type $color
+
+@mixin bording-pc  ($color: $font-faint-color, $type: solid)
+  &::after
+    content: ""
+    display: block
+    width: 57.45%
+    padding-bottom: 24px
+    margin-bottom: 24px
+    border-bottom: 1px $type $color

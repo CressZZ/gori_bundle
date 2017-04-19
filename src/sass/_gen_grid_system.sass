@@ -1,0 +1,42 @@
+$small_body_width: 440px
+$small_col_width: 110px
+$small_col_percentage: (($small_col_width)/($small_body_width)) * 100%
+
+$big_body_width: 940px
+$big_col_width: 60px
+$big_gap_width: 20px
+$big_col_percentage: (($big_col_width)/($big_body_width)) * 100%
+$big_gap_percentage: (($big_gap_width)/($big_body_width)) * 100%
+
+
+[class*=col]
+  float: left
+  margin-right: -100%
+
+
+.row
+  &::after
+    clear: both
+    content: ""
+    display: block
+
+
+@for $i from 1 through 4
+  .col-#{$i}-4
+    width: ($i * $small_col_percentage)
+
+@for $i from 1 through 4
+  .push-#{$i}-4
+    margin-left: ($i * $small_col_percentage)
+
+
+
+
+@media screen and (min-width: 690px)
+  @for $i from 1 through 12
+    .col-#{$i}-12
+      width: ($i * $big_col_percentage) + (($i - 1) * $big_gap_percentage)
+
+  @for $i from 1 through 11
+    .push-#{$i}-12
+      margin-left: ($i * $big_col_percentage) + (($i) * $big_gap_percentage)

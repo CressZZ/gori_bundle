@@ -1,0 +1,144 @@
+
+
+//------------login-----------
+body
+  background: #fff
+
+.modal-background
+  background: black
+  width: 100%
+  height: 100%
+  // height: 1000px
+
+.modal-content
+  @include centering_img
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  position: fixed
+  z-index: 100
+  // width: 100%
+  // height: 100%
+  // box-shadow: 1px 1px rgba(255, 255, 255, 0.4), -1px -1px rgba(0, 0, 0, 0.4)
+
+
+
+.login__container, .sign-up__container
+  border: 1px solid $font-faint-color
+  margin: 0 auto
+  width: 440px
+  text-align: center
+  color: $font-sub-color
+  // padding: 40px 20px
+  background: #fff
+  position: relative
+  padding: 60px 40px
+  border-radius: 4px
+
+.login__heading, .sign-up__heading
+  font-size: $font-l-size
+  padding: 0px 0 24px 0
+
+.sign-up__field
+  // background: #154
+  padding: 0 20px
+  position: relative
+
+.login__field, .sign-up__field
+  // font-size: 0
+
+
+.sign-up__container input , .login__container input
+
+
+  border: 1px solid $point-color
+  width: 300px
+  height: 48px
+  padding-left: 10px
+  margin-bottom: 12px
+
+.login__email-btn, .join__email-btn
+  width: 300px
+  height: 48px
+  background: $point-color
+  color: #fff
+  font-size: $font-m-size
+
+// 로그인 상태유지 변경!!!!!!
+.checkbox-custom
+  display: flex
+  align-items: center
+  font-size: $font-s-size
+  justify-content: space-between
+  width: 300px
+  margin: 0 auto !important
+  input
+    width: 50px
+    margin: 0
+
+.panel-line
+  padding: 0px 30px 20px 30px
+  position: relative
+
+.or
+  width: 60px
+  height: 20px
+  background: #fff
+  position: absolute
+  top: -6px
+  left: 40%
+  font-size: $font-base-size
+
+.divider
+  border: 0
+  height: 0
+  border-top: 1px solid rgba(0, 0, 0, 0.2)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+
+.facebook__login-btn ,.facebook__join-btn
+  width: 300px
+  height: 48px
+  background: #3b5998
+  color: #fff
+  font-size: $font-m-size
+  // margin: 12px 0
+  margin-bottom: 20px
+
+
+
+.member__ctrl
+  // padding-top: 5px
+  font-size: $font-xs-size
+
+.member__ctrl>span
+  padding: 0 10px
+
+.facebook__join-btn
+  margin-top: 12px
+
+.modal-close
+  position: absolute
+  font-size: $font-l-size
+  font-weight: 600
+  color: $font-faint-color
+  top: 14px
+  right: 20px
+
+.modal-close:hover
+  position: absolute
+  font-size: $font-l-size
+  font-weight: 600
+  color: $font-sub-color
+
+// .policy
+//   font-size: 12px
+//   position: absolute
+//   bottom: 75.5px
+//   left: 53px
+
+.remember_me
+  font-size: 12px
+  position: absolute
+  bottom: 237px
+  left: 93px

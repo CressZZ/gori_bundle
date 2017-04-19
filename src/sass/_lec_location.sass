@@ -1,0 +1,24 @@
+
+#map
+  height: 600px
+
+.location__heading
+  margin-bottom: $stand-height
+
+
+@media screen and (max-width: 689px)
+  .location
+    // padding: 0 20px
+    @include bording-mobile-2nd
+
+  .location__heading
+    padding: 0 20px
+
+
+
+@media screen and (min-width: 690px)
+  .location
+    max-width: 1200px
+    padding: 0 20px 0 20px
+    margin: 0 auto 24px auto
+    @include bording-pc

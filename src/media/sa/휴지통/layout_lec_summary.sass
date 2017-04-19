@@ -1,0 +1,85 @@
+@import "total"
+
+
+@media screen and (max-width: 699px)
+  .summery
+    padding: 40px 20px
+    // margin: 40px 0
+    background: #333
+
+
+  .summery__review
+    // margin-top: 48px
+    height: 24px
+    display: flex
+    flex-flow: row
+  .summery__class-title
+    font-size: $font-xl-size
+    background: #118
+    margin: 4px 0
+
+  .summery__gen-info
+    font-size: $font-s-size
+    color: $font-sub-color
+
+    // padding: 0 9px 0 0
+  .summery__gen-info > span::before
+    content: '・'
+    background: #192
+    padding: 0 10px
+
+  .summery__review__stars
+    display: flex
+    flex-flow: row
+    justify-content: center
+
+  .icon-star
+    color: gold
+    margin: 0
+    padding: 0
+    text-indent: 0
+
+  .into__review__num
+    padding: 0 5px
+
+  .into__review__num, .icon-star
+    // background-color: yellow
+    font-size: $font-s-size
+
+  .summery__tutor__picture
+    margin-top: 24px
+
+  .summery__price-info, .icon-won
+    margin-top: 80px
+    background: #113
+    font-size: $font-m-size
+    font-style: normal
+
+@media screen and (min-width: 700px)
+  .summery
+    max-width: 940px
+    margin: 0 auto
+
+
+  .summery__review
+    margin-top: 48px
+    height: 24px
+    display: flex
+    flex-flow: row
+
+
+
+  .summery__review__stars
+    display: flex
+    flex-flow: row
+    justify-content: center
+    .icon-star
+      color: gold
+      margin: 0
+      padding: 0
+      text-indent: 0
+
+  .into__review__num
+    // background-color: yellow
+  .summery__tutor__picture
+    margin-top: 72px

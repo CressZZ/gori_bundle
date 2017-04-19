@@ -1,0 +1,48 @@
+
+.intro__heading
+  margin-bottom: $stand-height
+
+
+
+@media screen and (max-width: 689px)
+  .intro
+    @include bording-mobile-2nd
+    font-size: $font-m-size
+
+  .intro__heading
+    padding: 0 20px
+  .intro__img-container
+    width: 100%
+    height: 0
+    padding-bottom: 50%
+    background-color: rgb(21, 113, 154)
+    position: relative
+    overflow: hidden
+    margin-bottom: $stand-height
+    img
+      width: 100%
+      @include centering_img
+
+  .intro__description
+    padding: 0 20px
+
+
+
+@media screen and (min-width: 690px)
+  .intro
+    max-width: 1200px
+    padding: 0 20px 0 20px
+    margin: 0 auto
+    font-size: $font-m-size 
+    @include bording-pc
+
+  .intro__img-container
+    width: 100%
+    height: 0
+    padding-bottom: 50%
+    position: relative
+    overflow: hidden
+    margin-bottom: $stand-height
+    img
+      width: 100%
+      @include centering_img

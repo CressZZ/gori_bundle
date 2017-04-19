@@ -1,0 +1,163 @@
+
+.review-section-1
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 24px
+
+.review__write__writer
+  display: flex
+  flex-flow: row
+  justify-content: space-between
+  // margin-bottom: 24px
+
+.review__write__writer__id
+  margin-top: 10px
+  // width: 102%
+  font-size: $font-xs-size
+  font-weight: 400
+  text-align: left
+  margin-left: 14px
+
+.review__write__writer__info-2
+  width: 80%
+  background-color:
+.review__write__writer__info__date
+  font-size: $font-xs-size
+  color: $font-sub-color
+
+.review__write__writer__descrip
+  margin-top: 5px
+
+@media screen and (max-width: 689px)
+  .review
+    font-size: $font-m-size
+    padding: 0 20px
+    @include bording-mobile
+
+  .review__stars
+    height: 96px
+    display: flex
+    flex-flow: row wrap
+    margin-bottom: 48px
+    li
+      display: flex
+      align-items: center
+      // justify-content: space-between
+      width: 50%
+      strong
+        width: 40%
+        min-width: 5
+        0px
+        display: block
+      [class *= reveiw__stars__]
+        display: flex
+        // justify-content: space-between
+        margin-right: 20%
+        color: gold
+  .review__write > div
+    @include bording-mobile (black, dashed)
+    &:last-child
+      &::after
+        border-bottom: 0
+
+  .review__write__writer__info-1
+    width: 16%
+    display: flex
+    flex-flow: column
+    justify-content: center
+    justify-content: flex-start
+    .review__write__writer__picture
+      width: 65px
+      height: 65px
+      border-radius: 50%
+
+  .review__page
+    display: flex
+    justify-content: center
+    a
+      width: 35px
+      display: flex
+      justify-content: center
+    a:first-child::before
+      content: "<"
+      display: block
+      margin-right: 10px
+    a:last-child::after
+      content: ">"
+      display: block
+      margin-left: 10px
+  .review__btn
+     color: $font-sub-color
+
+
+@media screen and (min-width: 690px)
+  .review
+    font-size: $font-m-size
+    max-width: 1200px
+    padding: 0 20px 0 20px
+    margin: 0 auto
+    @include bording-pc
+
+  .review__stars
+    height: 96px
+    display: flex
+    flex-flow: row wrap
+    margin-bottom: 48px
+    li
+      display: flex
+      align-items: center
+      // justify-content: space-between
+      width: 50%
+      strong
+        width: 40%
+        min-width: 70px
+      .review__stars__total
+      [class *= reveiw__stars__]
+        width: 40%
+        display: flex
+        // justify-content: space-between
+        margin-right: 30px
+        color: gold
+
+  .review__write > div
+    @include bording-pc ($font-faint-color, dashed)
+    &:last-child
+      &::after
+        border-bottom: 0
+
+      // border-color: black
+
+  .review__write__writer__info-1
+    // margin: 0 18px
+    width: 11%
+    display: flex
+    flex-flow: column
+    justify-content: center
+    justify-content: flex-start
+    .review__write__writer__picture
+      width: 65px
+      height: 65px
+      border-radius: 50%
+
+  .review__page
+    display: flex
+    justify-content: center
+    a
+      padding: 5px
+      width: 35px
+      display: flex
+      justify-content: center
+    a:first-child::before
+      // padding: 5px
+      content: "<"
+      display: block
+      margin-right: 10px
+    a:last-child::after
+      // padding: 5px
+      content: ">"
+      display: block
+      margin-left: 10px
+
+  .review__btn
+     color: $font-sub-color

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gori 과외매칭서비스</title>
+  <style type="text/css">
+      #map { height: 300px; }
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src = "../js/grid_view.js"></script>
+    <link rel="stylesheet" href="../fontello/css/fontello.css">
+    <link rel="stylesheet" href="../css/layout_lec_apply.css">
+</head>
+<body>
+  <a href="#" class="skip-nav">본문 바로가기</a>
+  <div class="wrapper">
+    <!-- header -->
+    <header class="header row">
+      <!-- 고리 로고 -->
+      <div class="header__heading row">
+        <h1 class="header__logo col-4-4 col-12-12">
+          <a href="#">
+            <!-- 이미지 로고는 생략할 예정 -->
+            <!-- <img class ="header__logo--pc" src="pc-images/logo.png" alt="Gori"> -->
+            <!-- <img class ="header__logo--mobile" src="mobile-images/logo.png" alt="Gori"> -->
+            <p class="header__logo--title pd20">Gori</p>
+          </a>
+        </h1>
+        <!-- menu -->
+        <!--  <ul class="header__navi__lnb_list off<<<<<">-->
+      <nav class="header__navi col-4-4 off">
+        <button class="header__navi__btn-menu--open pd20 on" type="button" name="button"><i class="icon-menu"></i></button>
+        <button class="header__navi__btn-menu--close pd20 off" type="button" name="button"><i class="icon-cancel"></i></button>
+        <ul class="header__navi__lnb_list">
+          <li><a href="#" class="navi_menu navi_menu_tutor ">튜터등록</a></li>
+          <li><a href="#" class="navi_menu navi_menu_service ">서비스소개</a></li>
+          <li><a href="#" class="navi_menu navi_menu_join col-2-4 col-12-12 is_logout ">회원가입</a></li>
+          <li><a href="#" class="navi_menu navi_menu_mypage is_login off ">마이페이지</a></li>
+          <li><a href="#" class="navi_menu navi_menu_login col-2-4 push-2-4 col-12-12 push-12-12 is_logout">로그인</a></li>
+          <li><a href="#" class="navi_menu navi_menu_logout is_login off">로그아웃</a></li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+    <!-- summery -->
+    <section class="summery">
+      <h2 class="hidden__heading">수업 안내</h2>
+      <div class="row">
+        <div class="summery__review col-2-4">
+          <!-- 재활용을 위해 [class*=__stars]를 활용하는 것을 추천 -->
+          <!-- 1.class__stars, 2.summery__stars -->
+          <div class="summery__review__stars">
+            <div class="star-1st"><i class="icon-star"></i></div>
+            <div class="star-2nd"><i class="icon-star"></i></div>
+            <div class="star-3rd"><i class="icon-star"></i></div>
+            <div class="star-4th"><i class="icon-star"></i></div>
+            <div class="star-5th"><i class="icon-star"></i></div>
+          </div>
+          <div class="row"><span class="into__review__num">후기 23개</span></div>
+        </div>
+      </div>
+      <h3 class="summery__class-title is_new">초심자를 위한 주식 사용 설명서</h3>
+      <div class="summery__gen-info">
+        <span class="summery__gen-info__group">그룹</span>
+        <span class="summery__gen-info__location-detail">장소협의</span>
+        <span class="summery__gen-info__times">4회</span>
+        <span class="summery__gen-info__time">1시간</span>
+      </div>
+      <div class="summery__price-info">
+        <span class="summery__price-info__total">20,000</span>
+        <span class="summery__price-info__each">총4회 240,000원</span>
+      </div>
+      <div class="summery__tutor">
+        <div class="summery__tutor__picture"><i class="icon-won">20,000</i></div>
+        <sapn class="summery__tutor__name">아이디 | 홍길동</sapn>
+      </div>
+    </section>
+
+    
+    <!-- apply -->
+    <section class="apply">
+      <h2 class="hidden__heading">수업 상세정보</h2>
+      <!-- div빼고 ul만 살림 (이전에는 div가 ul을 감싸는 구조로, div가 필요 없다고 판단) -->
+      <div class="apply__wrapper">
+        <ul class="apply__info">
+          <li class="apply__info__location">
+            <i class="fontello icon-location"></i>
+            <strong>신촌</strong>
+            <span>지역상의후 변경가능</span>
+          </li>
+          <li class="apply__info__time">
+            <i class="fontello icon-clock"></i>
+            <strong>1시간/회</strong>
+            <span>AM 9:30-PM 5:00</span>
+          </li>
+          <li class="apply__info__group">
+            <i class="fontello icon-group-circled"></i>
+            <strong>최대4인</strong>
+            <span>최소인원 3명</span>
+          </li>
+          <li class="apply__info__week">
+            <i class="fontello icon-calendar"></i>
+            <strong>월/수/금</strong>
+            <span>총4회 / 240,000원</span>
+          </li>
+          <li class="apply__info__additional-cost">
+            <i class="fontello icon-won"></i>
+            <strong>추가비용 <span>있음</span></strong>
+            <span>개인카페음료</span>
+          </li>
+        </ul>
+      </div>
+        <div class="apply__buttons">
+          <button class="apply__buttons__btn-wish col-2-4">찜하기 <a href="#" class="apply__buttons__heart"><i class="icon-heart-empty"></i></a></button>
+          <button class="apply__buttons__btn-apply col-2-4 push-2-4">수업 신청하기</button>
+          <!-- 하트를 div에서 a로 change 함. 클릭이 되야 한다고 판단 -->
+      </div>
+      </section>
+
+  </div>
+
+</body>
+</html>

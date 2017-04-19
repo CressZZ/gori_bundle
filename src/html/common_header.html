@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>grid_system_test</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src = "../js/grid_view.js"></script>
+  <link rel="stylesheet" href="../fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/layout_common_header.css">
+
+</head>
+<body class="">
+
+  <!-- skip-nav -->
+  <a href="#" class="skip-nav">본문 바로가기</a>
+  <div class="wrapper">
+
+    <!-- header -->
+    <header class="header row">
+      <!-- 고리 로고 -->
+      <div class="header__heading row">
+        <h1 class="header__logo col-4-4 col-12-12">
+          <a href="#">
+            <!-- 이미지 로고는 생략할 예정 -->
+            <!-- <img class ="header__logo--pc" src="pc-images/logo.png" alt="Gori"> -->
+            <!-- <img class ="header__logo--mobile" src="mobile-images/logo.png" alt="Gori"> -->
+            <p class="header__logo--title pd20">Gori</p>
+          </a>
+        </h1>
+        <!-- menu -->
+        <!--  <ul class="header__navi__lnb_list off<<<<<">-->
+      <nav class="header__navi col-4-4 ">
+        <button class="header__navi__btn-menu--open pd20 on" type="button" name="button"><i class="icon-menu"></i></button>
+        <button class="header__navi__btn-menu--close pd20 off" type="button" name="button"><i class="icon-cancel"></i></button>
+        <ul class="header__navi__lnb_list">
+          <li><a href="#" class="navi_menu navi_menu_tutor pd20 ">튜터등록</a></li>
+          <li><a href="#" class="navi_menu navi_menu_service pd20">서비스소개</a></li>
+          <li><a href="#" class="navi_menu navi_menu_join col-2-4 is_logout">회원가입</a></li>
+          <li><a href="#" class="navi_menu navi_menu_mypage is_login off">마이페이지</a></li>
+          <li><a href="#" class="navi_menu navi_menu_login col-2-4 push-2-4 is_logout">로그인</a></li>
+          <li><a href="#" class="navi_menu navi_menu_logout is_login off">로그아웃</a></li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+
+</div>
+
+
+</body>
+</html>
