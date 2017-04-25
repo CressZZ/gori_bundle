@@ -3,60 +3,26 @@
 
   .list_class-list
     text-align: center
-
-  .list_class-list__heading
-    font-size: 32px
-
-  .list_class-list__subtitle
-    padding: 5px
-    font-size: $font-m-size
-
+    padding: 0 20px
+  //
   .list_class-list__carousel
     // 감추기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    padding: 1px
     overflow: scroll
     &::-webkit-scrollbar
       display: none
 
+
   .list_class-list__carousel__list
     white-space: nowrap
     font-size: 0
-    @for $i from 2 through 8
-      li
-        &:nth-child(#{$i})
-          margin-left: 1%
     li
       position: relative
       display: inline-block
-      width: 49.5%
-      
-      border: 1px solid $font-faint-color
-      // font-size: 1rem
+      width: 250px
+      padding: 0 3px
+      .class-list__carousel__list__item__wrap
+        border: 1px solid $font-faint-color
 
-  .list_class-list__carousel
-    .is_new
-      font-size: 3px
-      position: absolute
-      top: 0
-      right: 0
-      color: #fff
-      background-color: $font-main-color
-      padding: 1px 4px
-
-    .list_class__wish
-      background: $font-faint-color
-      width: 25px
-      height: 25px
-      border-radius: 50%
-
-    .is_wish
-      position: absolute
-      top: 31%
-      left: 53%
-
-    .icon-heart
-      font-size: $font-m-size
-      color: #ff3e81
 
     .list_class__tutor-picture
       // background: #162
@@ -78,11 +44,11 @@
     .start-total-num
       padding: 0 0 0 3px
 
-  .icon-star
-    color: gold
-
-  .icon-star::before
-    margin: 0
+  // .icon-star
+  //   color: gold
+  //
+  // .icon-star::before
+  //   margin: 0
 
 
   .list_class__intro__title
@@ -123,6 +89,9 @@
     border-radius: 2px
     background-color: $point-color
     font-size: $font-s-size
+    &:hover
+      background-color: $point-sub-color
+
 
   .list_class-list__carousel__left, .list_class-list__carousel__right
     display: none
@@ -157,7 +126,6 @@
   .list_class-list__carousel__list
     // white-space: nowrap
     width: 600px
-
     font-size: 0
     display: flex
     justify-content: flex-start
@@ -188,19 +156,19 @@
       background-color: rgb(57, 57, 57)
       padding: 1px 4px
 
-    .list_class__wish
-      background: #fff
-      width: 25px
-      height: 25px
-      border-radius: 50%
-
-    .is_wish
-      position: absolute
-      top: 31%
-      left: 53%
-    .icon-heart
-      font-size: $font-m-size
-      color: #ff3e81
+    // .list_class__wish
+    //   background: #fff
+    //   width: 25px
+    //   height: 25px
+    //   border-radius: 50%
+    //
+    // .is_wish
+    //   position: absolute
+    //   top: 31%
+    //   left: 53%
+    // .icon-heart
+    //   font-size: $font-m-size
+    //   color: #ff3e81
 
     .list_class__tutor-picture
       // background: #162

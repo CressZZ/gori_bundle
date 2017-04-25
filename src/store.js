@@ -7,15 +7,22 @@ export const stores = {
       is_login: false,
       // Token: "39248c0f2405edb4202fc393e5d7df367601f9cb",
       Token: "",
-      wishlist:{
-
+      wishlist: {},
+      loginInfo: {},
+      registration: {},
+    },
+    page:{
+      question: {
+        page: 1,
+        requestCountPerPage: 4
       },
-      loginInfo: {
-
-      },
+      review: {
+        page: 1,
+        requestCountPerPage: 4
+      }
     },
     register:{
-      talent_pk: null,
+      talent_pk: 56,
     },
     join: {
       joinInfo: {
@@ -36,22 +43,36 @@ export const stores = {
         comment: ""
       },
     },
-
-
   },
   mutations: {
 
       Token (state, Token) {
-        state.login.is_login = true;
         state.login.Token = Token;
+      },
+      islogout(state){
+        state.login.Token = ""
+        state.login.is_login = false;
+        state.login.loginInfo = ""
+        state.login.wishlist = ""
+      },
+      islogin(state){
+        state.login.is_login = true;
       },
       loginInfo (state, loginInfo){
         state.login.loginInfo = loginInfo
       },
+      wishlist(state, value){
+        state.login.wishlist = value
+      },
+      registration(state, value){
+        state.login.registration = value
+      },
+
       joinInfo (state, joinInfo){
         console.log(joinInfo)
         state.join.joinInfo = joinInfo
       },
+
       logout(state){
         state.login.is_login = false;
         state.login.Token = "";
@@ -86,15 +107,19 @@ export const stores = {
         state.rating.add.comment = ""
         state.rating.add.talent_pk = ""
       },
-      wishlist(state, value){
-        state.login.wishlist = value
-      },
+
       talentRegister(state, value){
         state.register.talent_pk = value
       },
-      userinfo(state, value){
-        state.login.loginInfo = value
-      }
+      // userinfo(state, value){
+      //   state.login.loginInfo = value
+      // }
+      pageChange(state, value){
+        state.page.question.page = value
+      },
+      pageChangeReview(state, value){
+        state.page.review.page = value
+      },
 
 
 

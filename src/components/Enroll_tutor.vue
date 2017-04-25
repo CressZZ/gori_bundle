@@ -10,8 +10,8 @@
           <tr>
             <th class="th4"><p>인증수단</p></th>
             <td>
-                <label class="">
-                  <select  @change = "" v-model = "tutorUpdate.verification_method" class="">
+                <label class="enroll-myinfo__tutor-id">
+                  <select class=""  @change = "" v-model = "tutorUpdate.verification_method">
                     <option value="UN">대학생</option>
                     <option value="GR">대학원생</option>
                     <option value="ID">신분증</option>
@@ -22,7 +22,7 @@
           <tr>
             <th class="th4"><p>학적상태</p></th>
             <td>
-              <label class="">
+              <label class="enroll-myinfo__tutor-status">
                 <select @change = "" v-model="tutorUpdate.current_status" class="">
                   <option value="G">졸업</option>
                   <option value="E">재학</option>
@@ -32,7 +32,7 @@
             </td>
           </tr>
       <tr>
-        <th class="th4"><p>인증사진</p></th>
+        <th class=""><p>인증사진</p></th>
         <td class="file_upload">
           <input @change="sync2" type="file" multiple="">
         </td>
@@ -40,7 +40,7 @@
       <tr>
         <th class="th4"><p>학교정보</p></th>
         <td>
-          <p class="">
+          <p class="enroll-myinfo__tutor-pic">
             <input v-model = "tutorUpdate.school" type="text">
           </p>
         </td>
@@ -96,22 +96,7 @@ export default {
   },
   props: ["detailAll"],
   created(){
-    this.$http.get('member/profile/user/', {
-    headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-    })
-    .then(function(response){
-      console.log("user-detail-response:",response)
 
-      return response.json()
-    })
-    .then(function(data){
-      this.userinfo = data
-      console.log("user-name:",data.name)
-      // console.log("data:",data)
-    })
-    .catch(function(err){
-      console.log("err:",err.bodyText)
-    })
 
   },
   methods: {
@@ -120,65 +105,33 @@ export default {
     this.tutorUpdate.verification_images = e.target.files[0]
 
   },
-    // userRegister(){
-    //   this.$router.push({ path: 'registerDetail' })
-    //   const data = new FormData()
-    //   data.append('name', this.userUpdate.name)
-    //   data.append('nickname', this.userUpdate.nickname)
-    //   data.append('profile_image', this.userUpdate.profile_image)
-    //   data.append('cellphone', this.userUpdate.cellphone)
-    //   console.log("data:",data)
-    //
-    //   this.$http.patch('member/update/user/',data,  {
-    //   headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-    //   })
-    //   .then(function(response){
-    //     console.log("register-response:",response)
-    //     this.userUpdate.name= ""
-    //     this.userUpdate.nickname= ""
-    //     this.userUpdate.profile_image= ""
-    //     this.userUpdate.cellphone= ""
-    //
-    //   })
-    //   .then(function(data){
-    //     console.log("register-data:",data)
-    //   })
-    //   .catch( error => {
-    //     console.error("error!!",error)
-    //     alert(error.bodyText)
-    //   });
-    //
-    // },
     register(){
-
-
       const data = new FormData()
-
+      data.append('verification_method', this.tutorUpdate.verification_method)
+      data.append('verification_images', this.tutorUpdate.verification_images)
+      data.append('school', this.tutorUpdate.school)
+      data.append('major', this.tutorUpdate.major)
+      data.append('current_status', this.tutorUpdate.current_status)
       this.$http.post('member/register/tutor/',data,  {
       headers: {Authorization: `Token ${this.$store.state.login.Token}`}
       })
       .then(function(response){
         console.log("register-response:",response)
-        // this.userUpdate.name= ""
-        this.userUpdate.nickname= ""
-        this.userUpdate.profile_image= ""
-        this.userUpdate.cellphone= ""
-
         this.tutorUpdate.verification_method= ""
         this.tutorUpdate.verification_images= ""
         this.tutorUpdate.school= ""
         this.tutorUpdate.current_status= ""
-        this.tutorUpdate.current_status= ""
-
-      })
-      .then(function(data){
-        console.log("register-data:",data)
+        this.tutorUpdate.major= ""
+        alert(response.body.detail)
+        return
       })
       .catch( error => {
-        console.error("error!!",error)
-        alert(error.bodyText)
+        return error.json()
+      })
+      .then( error => {
+        console.error("error",error)
+        alert(error.detail)
       });
-
     },
 
 

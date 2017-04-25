@@ -18,14 +18,18 @@
               </video>
             </li>
             <li class="" v-bind:style="{ transform: 'translate(' + trans + '%)' }">
-              <img class="banner__carousel__list__item" src="../media/img/temp/cat.jpg" alt="홍보배너">
+              <img class="banner__carousel__list__item" src="../media/img/categori/02.jpg" alt="홍보배너">
               <div class="copy">
                 <p class="copy__slogan">재능을 연결해 드립니다!</p>
                 <p class="copy__slogan__sub">다양한 사람, 이야기가 있는 곳</p>
               </div>
             </li>
             <li class=" " v-bind:style="{ transform: 'translate(' + trans + '%)' }">
-              <img class="banner__carousel__list__item" src="../media/img/temp/temp.jpg" alt="소개">
+              <img class="banner__carousel__list__item" src="../media/img/categori/03.jpg" alt="소개">
+              <div class="copy">
+                <p class="copy__slogan">쉽고 빠른 재능 연결!</p>
+                <p class="copy__slogan__sub">고리에서 여러분의 선생님을 찾고, 또 누군가의 선생님이 되어보세요.</p>
+              </div>
             </li>
           </ul>
           <!-- Carousel nav ( ○○●○○ )  -->
@@ -45,7 +49,7 @@
 
         <div class="banner__search__wrapper">
           <form @keydown.enter = "filtering" action="search" class="list__search">
-            <input @keydown.enter.prevent = "filtering" v-model="filter.title" class="list__search__input" type="search" autofocus placeholder="바숙미 바보"><button @click = "filtering" class="list__search__btn" type="button">검색</button>
+            <input @keydown.enter.prevent = "filtering" v-model="filter.title" class="list__search__input" type="search" autofocus placeholder="듣고싶은 수업을 검색하세요"><button @click = "filtering" class="list__search__btn" type="button">검색</button>
           </form>
         </div>
       </section>

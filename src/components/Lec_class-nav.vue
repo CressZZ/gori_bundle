@@ -52,7 +52,6 @@ export default {
     navPosition(){
       var windowScrollTop = window.pageYOffset
       this.NavTop = document.querySelector('.class_nav').offsetTop
-      console.log("NavTop",this.NavTop)
        if (this.currentPage === "mobile"){
         if( windowScrollTop > this.NavTop ) {
           this.isFixed = true

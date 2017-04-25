@@ -1,23 +1,26 @@
 import Main from './components/Main.vue'
-// import Lec from './components/Lec.vue'
-// import Header from './components/Header.vue'
-// import Footer from './components/Footer.vue'
-// import Join from './components/Join.vue'
-// import Login from './components/Login.vue'
+import Lec from './components/Lec.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import Join from './components/Join.vue'
+import Login from './components/Login.vue'
 import List from './components/List.vue'
 import Enroll from './components/Enroll.vue'
 import EnrollRegister from './components/Enroll_register.vue'
 import EnrollRegisterDetail from './components/Enroll_registerdetail.vue'
 import EnrollRegisterMyinfo from './components/Enroll_myinfo.vue'
 import EnrollRegisterTutor from './components/Enroll_tutor.vue'
+import EnrollWishList from './components/Enroll_wish_list.vue'
+import EnrollAppledList from './components/Enroll_appled_list.vue'
+import EnrollmyLecList from './components/Enroll_mylec_list.vue'
 
 
 // import LecMap from './components/Lec_map.vue'
-const Lec = r => require.ensure([], () => r(require('./components/Lec.vue')), 'group-foo')
-const Header = r => require.ensure([], () => r(require('./components/Header.vue')), 'group-foo')
-const Footer = r => require.ensure([], () => r(require('./components/Footer.vue')), 'group-foo')
-const Join = r => require.ensure([], () => r(require('./components/Join.vue')), 'group-foo')
-const Login = r => require.ensure([], () => r(require('./components/Login.vue')), 'group-foo')
+// const Lec = r => require.ensure([], () => r(require('./components/Lec.vue')), 'group-foo')
+// const Header = r => require.ensure([], () => r(require('./components/Header.vue')), 'group-foo')
+// const Footer = r => require.ensure([], () => r(require('./components/Footer.vue')), 'group-foo')
+// const Join = r => require.ensure([], () => r(require('./components/Join.vue')), 'group-foo')
+// const Login = r => require.ensure([], () => r(require('./components/Login.vue')), 'group-foo')
 
 
 // const Lec = resolve => require(['./components/Lec.vue'], 'group-lec')
@@ -80,7 +83,10 @@ export const routes = [
     { path: 'registertutor', component: EnrollRegisterTutor, name: 'tutor' },
     { path: 'registerMyinfo', component: EnrollRegisterMyinfo, name: 'myinfo'},
     { path: 'register', component: EnrollRegister },
-    { path: 'registerDetail', component: EnrollRegisterDetail}
+    { path: 'registerDetail', component: EnrollRegisterDetail},
+    { path: 'wishList', component: EnrollWishList, name: 'mywish'},
+    { path: 'appledList', component: EnrollAppledList, name: 'myapply'},
+    { path: 'myLecList', component: EnrollmyLecList, name: 'mylec'}
   ]
   },
 

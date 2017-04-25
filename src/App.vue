@@ -1,11 +1,11 @@
 <template>
-  <div id="app"  :class="{ gridon: isgrid }"  @click.meta="gridToggle">
+  <div id="app2"  :class="{ gridon: isgrid }"  @click.meta="gridToggle">
       <router-view name='join' ></router-view>
       <router-view name='login'></router-view>
       <router-view name="header" ></router-view>
 
       <router-view :classlist = "classlist"></router-view>
-    <router-view name="footer"></router-view>
+      <router-view name="footer"></router-view>
 
   </div>
 </template>
@@ -14,7 +14,7 @@
 import {bus} from './bus'
 // import
 export default {
-  name: 'app',
+  // name: 'app',
   data () {
     return {
       classlist: [],
@@ -30,6 +30,7 @@ computed:{
 },
 created() {
   // console.log("$:",$().jquery)
+  // 실행하자 마자 talent list를 GET!
   this.$http.get('talent/list/')
   .then(function(response){
     return response.json()
@@ -39,7 +40,6 @@ created() {
     return
   })
   .catch( error => console.error(error.message) );
-
 },
 
 mounted(){
@@ -47,11 +47,10 @@ mounted(){
   },
 methods: {
   gridToggle(){
-    console.log("click!!!!!!!!!!!!!!!!!")
+    console.log("gridToggle-on!!!")
     this.isgrid = !this.isgrid;
   }
-
-  },
+},
 
 }
 </script>

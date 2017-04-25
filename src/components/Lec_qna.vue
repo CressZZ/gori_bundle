@@ -19,16 +19,16 @@
 
 
       <!-- <li class="qna__list__q" v-for = "question in detailQuestion.results" > -->
-      <li class="qna__list__q" v-for = "question in questionpage" >
+      <li class="qna__list__q" v-for = "question in detailQuestion.results" >
 
         <div class="row">
           <div class="qna__list__q__writer col-4-4 col-7-12">
-            <span><div>q</div>{{question.user}}</span>
-            <span class="qna__list__q__date">{{question.created_date.substring(0,10)}} &nbsp;  &nbsp;  {{question.created_date.substring(11,16)}}</span>
+            <span><div>Q</div>{{question.user}}</span>
+            <span class="qna__list__q__date">{{question.created_date.substring(0,10)}} </span>
           </div>
         </div>
         <div class="row">
-          <p class="qna__list__q__descrip col-4-4 col-7-12">{{question.content}}</p>
+          <p class="qna__list__q__descrip col-4-4 col-7-12" v-html="whiteSpace(question.content)"></p>
         </div>
         <div class="qna__list__a" v-for ="reply in question.replies">
           <div class="row">
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="row">
-            <p class="qna__list__a__descrip col-4-4 col-7-12">{{reply.content}}</p>
+            <p class="qna__list__a__descrip col-4-4 col-7-12" v-html="whiteSpace(reply.content)"></p>
           </div>
         </div>
       </li>
@@ -62,16 +62,13 @@
 export default {
   data: function(){
     return {
-      add:{
+      add: {
         talent_pk: this.$route.params.lecid,
         content: "새로운 질문 입니다."
-      },
+        },
       tempQuestion: null,
       count_per_page: 4,
       page_to: 1,
-      // pagenum: Math.ceil(this.detailQuestion.count / this.count_per_page),
-
-
     }
   },
   props: ["detailQuestion"],
@@ -81,6 +78,7 @@ export default {
         return alert("내용을 입력하셔야죠!!!!!!")
       }
       this.add.content = this.tempQuestion;
+      console.log("replace:",this.tempQuestion.replace("\n","<br>"))
       this.tempQuestion = null;
       this.$http.post('talent/add/question/', this.add,{
       headers: {Authorization: `Token ${this.$store.state.login.Token}`}
@@ -92,31 +90,35 @@ export default {
         this.$emit('reflesh')
       })
       .catch( error => {
+        console.log("error.bodyText:",error)
+          alert(error.bodyText)         
       });
     },
-    changePage(n){
-       this.page_to = n
+
+    whiteSpace(text){
+      return text.replace(/\r\n|\r|\n/gi,"<br>")
     },
-    pagenumadd(){
-      this.pagenum = Math.ceil(this.detailQuestion.count / this.count_per_page)
-    }
+    changePage(n){
+      this.$store.commit("pageChange", n)
+      this.$emit('reflesh')
+    },
+
   },
   watch:{
-    detailQuestion(){
-      this.pagenumadd()
+
+    tempQuestion(){
+      console.log(this.tempQuestion)
     }
   },
   computed:{
-    questionpage(){
-      const from = ((this.page_to * this.count_per_page) - this.count_per_page)
-      const to = this.page_to * this.count_per_page
-      return this.detailQuestion.results.reverse().slice(from, to)
+    pagenum(){
+      return Math.ceil(this.detailQuestion.count / this.$store.state.page.question.requestCountPerPage)
+    }
     },
-  },
+
 
   created(){
-      // this.questionpage;
-      this.pagenumadd()
+
   },
 }
 </script>

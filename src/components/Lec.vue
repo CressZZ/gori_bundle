@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <div>
+  <div class="lec-wrap">
   <!-- <p>parameter ID {{id}}</p> -->
   <!-- <join>
 
@@ -9,43 +9,59 @@
   <login :visible="visibles" @nonVisible = "nonVisible">
 
   </login> -->
+<transition name="fade"  mode="in-out">
+  <Loading  v-if="!isLoading">
+  </Loading>
+</transition>
+<transition name="fade"  mode="in-out">
 
-  <lec-summary v-for="item in detailAllArrayTrick"  :key="id" :detailAll = "detailAll">
+  <lec-summary v-if="isLoading" v-for="item in detailAllArrayTrick"  :key="id" :detailAll = "detailAll">
 
   </lec-summary>
+</transition>
 
-  <lec-apply v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
+<transition name="fade"  mode="in-out">
+
+  <lec-apply v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
   </lec-apply>
+</transition>
+<transition name="fade"  mode="in-out">
 
-  <lec-class-nav :detailAll = "detailAll">
+  <lec-class-nav  v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
   </lec-class-nav>
+</transition>
 
+  <transition name="fade"  mode="in-out">
 
-  <lec-speaking  v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
+  <lec-speaking  v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
 
-  </lec-speaking :detailAll = "detailAll">
+  </lec-speaking >
+</transition>
 
-  <lec-intro :detailAll = "detailAll">
+  <transition name="fade"  mode="in-out">
+
+  <lec-intro  v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
 
   </lec-intro>
+</transition>
 
 
-  <lec-location v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
+  <lec-location  v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
 
   </lec-location>
 
 
-  <lec-curriculum :detailAll = "detailAll">
+  <lec-curriculum v-if="isLoading" v-for="item in detailAllArrayTrick" :key="id" :detailAll = "detailAll">
 
   </lec-curriculum>
 
 
-  <lec-review v-for="item in reviewArrayTrick" :key="id" @reflesh = "reviewload" :detailReview ="detailReview" :detailAll = "detailAll">
+  <lec-review v-if="isLoading" v-for="item in reviewArrayTrick" :key="id" @reflesh = "reviewload" :detailReview ="detailReview" :detailAll = "detailAll">
 
   </lec-review>
 
 
-  <lec-qna  v-for="item in qnaArrayTrick" :key="id" :detailQuestion = "detailQuestion" @reflesh = "questionload">
+  <lec-qna  v-if="isLoading" v-for="item in qnaArrayTrick" :key="id" :detailQuestion = "detailQuestion" @reflesh = "questionload">
 
   </lec-qna>
 
@@ -55,9 +71,6 @@
 </template>
 
 <script>
-// import Join from './Join.vue'
-// import Login from './Login.vue'
-
 import LecSummary from './Lec_summary.vue'
 import LecSpeaking from './Lec_speaking.vue'
 import LecApply from './Lec_apply.vue'
@@ -67,7 +80,8 @@ import LecLocation from './Lec_location.vue'
 import LecQna from './Lec_qna.vue'
 import LecReview from './Lec_review.vue'
 import LecClassNav from './Lec_class-nav.vue'
-// import Rating from './Rating.vue'
+import Loading from './Loading.vue'
+
 
 
 import {bus} from '../bus'
@@ -80,8 +94,7 @@ export default {
       detailReview: [],
       detailQuestion: [],
 
-      // questionPage: 4,
-
+      // 데이터 뿌리는 순서를 위한  Trick
       detailAllArrayTrick: [],
       reviewArrayTrick: [],
       qnaArrayTrick: []
@@ -92,15 +105,15 @@ export default {
   },
   // props: ['classlist'],
   created(){
-
       // 1. detailAll 데이터 get
       this.$http.get(`talent/detail-all/${this.$route.params.lecid}/`)
       .then(function(response){
+        console.log("detailAll-response:",response)
         return response.json()
       })
       .then(function(data){
+        console.log("detailAll-data:",data)
         this.detailAll = data,
-
         //Array 해결을 위한 트릭!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         this.detailAllArrayTrick = [1]
       })
@@ -111,47 +124,28 @@ export default {
 
       // 3. talent Questions
       this.questionload()
-
-
-      // 4. user-detail 데이터 get
-      // this.$http.get('member/profile/user/', {
-      // headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-      // })
-      // .then(function(response){
-      //   console.log("user-detail-response:",response)
-      //   return response.json()
-      // })
-      // .then(function(data){
-      // })
-      // .catch(function(err){
-      //   console.log("err:",err.bodyText)
-      // })
-
-  },
-  mounted(){
-    // console.log("lec-vue lecid2:", this.id)
-    // console.log("class-List2:", this.classlist)
-
-  },
-
-  updated(){
-    // console.log("lec-vue lecid3:", this.id)
-    // console.log("class-List3:", this.classlist)
-
   },
   beforeDestroy(){
-    // console.log("lec-vue lecid4:", this.id)
-    // console.log("class-List4:", this.classlist)
+    this.$store.commit("pageChangeReview", 1)
+    this.$store.commit("pageChange", 1)
+
+
 
   },
-  watch:{
+  computed: {
+    isLoading(){
+      if (this.detailAllArrayTrick[0] === 1 && this.reviewArrayTrick[0] === 1 && this.qnaArrayTrick[0] === 1){
+        return true
+      }
 
+    },
   },
+
 
   methods: {
     questionload(){
-      this.$http.get(`talent/detail/${this.$route.params.lecid}/qna/`)
-        // ,{ params: {page_size: 2, page: this.questionPage}} )
+      this.$http.get(`talent/detail/${this.$route.params.lecid}/qna/`
+        ,{ params: {page_size: this.$store.state.page.question.requestCountPerPage, page: this.$store.state.page.question.page}} )
     .then(function(response){
       console.log("response-question:",response)
       return response.json()
@@ -165,8 +159,10 @@ export default {
     })
   },
     reviewload(){
-      this.$http.get(`talent/detail/${this.$route.params.lecid}/review/`)
+      this.$http.get(`talent/detail/${this.$route.params.lecid}/review/`,{ params: {page_size: this.$store.state.page.review.requestCountPerPage, page: this.$store.state.page.review.page}} )
       .then(function(response){
+        console.log("response-review:",response)
+
         return response.json()
       })
       .then(function(data){
@@ -200,6 +196,7 @@ export default {
     LecQna,
     LecReview,
     LecClassNav,
+    Loading,
   },
 
 
@@ -207,8 +204,18 @@ export default {
 </script>
 
   <style lang="sass">
+    .lec-wrap
+      min-height: 100vh
     [v-cloak]
       display: none
+
+
+    .fade-enter-active, .fade-leave-active
+      transition: opacity 2s
+
+    .fade-enter, .fade-leave-to
+      opacity: 0
+
 
     // @import "../sass/total"
     // @import "../sass/lec-index"

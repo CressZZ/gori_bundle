@@ -27,13 +27,11 @@
                 <ul class="header__navi__lnb_list"  >
                   <router-link tag="li" :to = "{ name: 'list'}" class="navi_menu_search"> <a href="#" >검색</a></router-link>
 
-                  <router-link tag="li" :to = "{ name: 'tutor'}"  class="navi_menu navi_menu_join  is_login" :class= "{off: !islogin}" > <a href="#" >튜터등록</a></router-link>
 
-                  <!-- <li > <a href="#" class="navi_menu_enroll">튜터등록</a></li> -->
+                  <router-link tag="li" :to = "{ name: 'tutor'}"  class="navi_menu navi_menu_tutor is_login" :class= "{off: !islogin}" > <a href="#" >튜터등록</a></router-link>
+                  <!-- <li class="navi_menu navi_menu_service ">
+                    <a href="#" @click = "verifyTalent" >강의 승인</a>
 
-
-                  <!-- <li class="navi_menu navi_menu_tutor ">
-                    <a href="#" >튜터등록</a>
                   </li> -->
 
                     <li class="navi_menu navi_menu_service ">
@@ -47,9 +45,7 @@
                   </li>
                   <router-link tag="li" :to = "{ name: 'myinfo'}"  class="navi_menu navi_menu_join  is_login" :class= "{off: !islogin}" > <a href="#" >마이페이지</a></router-link>
 
-                  <!-- <li class="navi_menu navi_menu_join  is_login" :class= "{off: !islogin}" >
-                    <a href="#" >마이페이지</a>
-                  </li> -->
+
                   <li  class="navi_menu navi_menu_login is_logout " :class= "{off: islogin}">
                     <a href="#"  @click = "loginvisible">로그인
                     </a>
@@ -74,6 +70,7 @@ export default {
   data(){
     return{
       isoffs: true,
+      // islogin: this.$store.state.login.is_login,
       WindowWidth: window.innerWidth,
       currentPage: "pc",
       loginInfo: {
@@ -83,39 +80,56 @@ export default {
     }
   },
   methods: {
-    submitLogin() {
-      this.login()
+    logout(){
+      alert("로그아웃 완료")
+      sessionStorage.setItem('is_login', false)
+      this.islogouts()
+      sessionStorage.clear()
+      this.$router.push({ name: 'main' })
     },
-    login(){
-      this.$http.post('member/login/', this.loginInfo)
+    submitLogin() {
+      this.login(this.loginInfo)
+    },
+    login(loginInfo){
+      this.$http.post('member/login/', loginInfo)
       .then(function(response){
+        console.log("login-response:",response)
         return response.json()
       })
       .then(function(data){
-        this.$store.commit('Token', data.key)
+        sessionStorage.setItem('Token', data.key)
+        sessionStorage.setItem('is_login', JSON.stringify(true))
+        console.log("login-data:",data)
         alert("로그인 완료!!")
         this.userInfo()
         this.wishlist()
-
-
-
+        this.registrationlist()
       })
       .catch( error => {
-        console.log("error:",error)
-      });
+        console.log("error-login!!!",error)
+        if(error.status === 400){
+          alert("아이디와 비밀번호를 확인하세요")
+        }
+        // return error.json()
+      })
+      // .then( error => {
+      // });
     },
+    //
     userInfo(){
       this.$http.get('member/profile/user/', {
-        headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+        headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
       })
       .then(function(response){
-        console.log("user-detail-response:",response)
+        console.log("user-response:",response)
         return response.json()
       })
       .then(function(data){
-        console.log("data:",data)
-        this.$store.commit('loginInfo', data)
+        console.log("user-data:",data)
+        sessionStorage.setItem('loginInfo', JSON.stringify(data))
+        this.loginUpdate()
 
+        // this.$store.commit('loginInfo', data)
       })
       .catch(function(err){
         console.log("err:",err.bodyText)
@@ -123,62 +137,73 @@ export default {
     },
     wishlist(){
       this.$http.get('member/wish-list/', {
-        headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+        headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
       })
       .then(function(response){
-        console.log("user-detail-response:",response)
+        console.log("wishlist-response:",response)
         return response.json()
       })
       .then(function(data){
-        console.log("data:",data)
-        this.$store.commit('wishlist', data)
-      })
-      .then(function(){
+        console.log("wishlist-data:",data)
+        sessionStorage.setItem('wishlist', JSON.stringify(data))
+        this.loginUpdate()
+
+        // this.$store.commit('wishlist', data)
+
+        // 최근 삭제
         bus.$emit('wishrefreash')
 
+        // return
       })
-      .catch(function(err){
-        console.log("err:",err.bodyText)
+      .catch( error => {
+        return error.json()
+      })
+      .then( error => {
+        // console.error("error",error)
+        // alert(error)
+      });
+    },
+
+
+    registrationlist(){
+      this.$http.get('member/registrations/', {
+      headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
+      })
+      .then(function(response){
+        console.log("dsdfdsfsdfd",response);
+        return response.json()
+      })
+      .then(function(data){
+        sessionStorage.setItem('registration', JSON.stringify(data))
+        this.loginUpdate()
+
+        // this.appledList = data
+        console.log("sdfsfsdfs",this.appledList);
       })
     },
+
+
     loginvisible(){
       console.log("click:")
-
-      // this.$emit('loginvisible')
       bus.$emit('loginvisible')
-
     },
     joinvisible(){
-      // this.$emit('joinvisible')
       bus.$emit('joinvisible')
-
     },
     isoff(){
       if(this.windowWidth < 689){
         this.isoffs = !this.isoffs
       }
     },
-    logout(){
-      alert("로그아웃 완료")
-      this.$store.commit('logout')
-      this.$router.push({ name: 'main' })
-
+    verifyTalent(){
+      // this.$http.get('member/staff/verify/talent/23/', {
+      //   headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+      // })
+      // .then(function(response){
+      //   console.log("verifyTalent-response:",response)
+      //   return response.json()
+      // })
     },
-    // verifyTutor(){
-    //   this.$http.post('member/token-auth/', this.userinfo)
-    //   .then(function(response){
-    //     return response.json()
-    //   })
-    //   .then(function(data){
-    //     console.log("data:",data)
-    //     alert("로그인 완료!!")
-    //     this.$store.commit('Token', data.token)
-    //   })
-    //   .catch( error => {
-    //     console.log("error:",error.bodyText)
-    //   });
-    // }
-
 
     windowResize(e){
       this.windowWidth = e.currentTarget.innerWidth;
@@ -195,14 +220,47 @@ export default {
       // if (this.windowWidth < 599){
         // this.isoffs = true
       // }
+    },
+    loginUpdate(){
+      console.log("session_login:",JSON.parse(sessionStorage.getItem("is_login")))
+      if (JSON.parse(sessionStorage.getItem("is_login")) === true){
+        this.$store.commit("islogin")
+        this.$store.commit("Token", sessionStorage.getItem("Token"))
+        this.$store.commit("loginInfo", JSON.parse(sessionStorage.getItem("loginInfo")))
+        this.$store.commit("wishlist", JSON.parse(sessionStorage.getItem("wishlist")))
+        this.$store.commit("registration", JSON.parse(sessionStorage.getItem("registration")))
+
+      }
+    },
+    islogouts(){
+      console.log("session_login:",JSON.parse(sessionStorage.getItem("is_login")))
+      if (JSON.parse(sessionStorage.getItem("is_login")) === false){
+        this.$store.commit("islogout")
+      }
     }
   },
   computed: {
     islogin(){
-      return this.$store.state.login.is_login
+        if(!this.$store.state.login.is_login){
+          return JSON.parse(sessionStorage.getItem("is_login"))
+        } else {
+          return this.$store.state.login.is_login
+        }
     }
   },
   created() {
+    if (JSON.parse(sessionStorage.getItem("is_login"))){
+      this.userInfo()
+      this.wishlist()
+      this.registrationlist()
+    }
+
+    bus.$on('userInforRefreash', () => {this.userInfo()})
+    bus.$on('wishlistRefreash', () => {this.wishlist()})
+    bus.$on('registrationRefreash', () => {this.registrationlist()})
+    bus.$on('submitLogin', (loginInfo) => {this.login(loginInfo)})
+
+
     console.log("this.$store.state.login.is_login:",this.$store.state.login.is_login)
     this.windowWidth = window.innerWidth
     if (this.windowWidth > 690){

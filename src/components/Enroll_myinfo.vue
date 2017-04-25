@@ -8,9 +8,12 @@
 			<caption class="blind">기본 정보</caption>
 			<tbody>
 			<tr>
-				<th class="th2"><p>이름</p></th>
+				<th class="th2"><p>이&nbsp;&nbsp;&nbsp;름</p></th>
 				<td>
-					<p>{{userinfo.name}}</p>
+					<p>
+            <!-- {{userinfo.name}} -->
+            <input v-model = "userUpdate.name"  type="text">
+          </p>
 				</td>
 			</tr>
 			<tr>
@@ -64,8 +67,8 @@
           <input @change="sync" type="file" multiple="">
 				</td>
 			</tr> -->
-      <tr>
-        <th class="th"><p>프로필사진</p></th>
+      <tr class="tenroll-myinfo-mypic">
+        <th class="th"><p>내사진</p></th>
         <td class="file_upload">
           <input @change="sync" type="file" multiple="">
         </td>
@@ -82,10 +85,12 @@
 <!-- v-model = "userUpdate.profile_image" -->
 
 <script>
+import {bus} from '../bus'
+
 export default {
   data(){
     return{
-      userinfo: {},
+      // userinfo: {},
       userUpdate: {
         name: "",
         nickname: "",
@@ -104,46 +109,69 @@ export default {
   },
   props: ["detailAll"],
   created(){
-    this.getUserInfo()
+    bus.$emit('userInforRefreash')
 },
-
+computed:{
+  userinfo(){
+    return this.$store.state.login.loginInfo
+  }
+},
 methods: {
     sync: function(e) {
     e.preventDefault()
     this.userUpdate.profile_image = e.target.files[0]
   },
-  getUserInfo() {
-    this.$http.get('member/profile/user/', {
-    headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-    })
-    .then(function(response){
-      console.log("user-detail-response:",response)
-      return response.json()
-    })
-    .then(function(data){
-      this.$store.commit('loginInfo', data)
-      console.log("user-nickname:",data.nickname)
-      console.log("data:",data)
-    })
-    .catch(function(err){
-      console.log("err:",err.bodyText)
-    })
-  },
+  // getUserInfo() {
+  //   this.$http.get('member/profile/user/', {
+  //   headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
+  //   })
+  //   .then(function(response){
+  //     console.log("user-detail-response:",response)
+  //     return response.json()
+  //   })
+  //   .then(function(data){
+  //     this.$store.commit('loginInfo', data)
+  //     console.log("user-nickname:",data.nickname)
+  //     console.log("data:",data)
+  //   })
+  //   .catch(function(err){
+  //     console.log("err:",err.bodyText)
+  //   })
+  // },
 
   register() {
     const data2 = new FormData()
-    data2.append('nickname', this.userUpdate.nickname)
-    data2.append('profile_image', this.userUpdate.profile_image)
-    data2.append('cellphone', this.userUpdate.cellphone)
-
+    if(this.userUpdate.nickname){
+      data2.append('nickname', this.userUpdate.nickname)
+    }
+    if(this.userUpdate.name){
+      data2.append('name', this.userUpdate.name)
+    }
+    if(this.userUpdate.profile_image){
+      data2.append('profile_image', this.userUpdate.profile_image)
+    }
+    if(this.userUpdate.cellphone){
+      data2.append('cellphone', this.userUpdate.cellphone)
+    }
     this.$http.patch('member/update/user/',data2,  {
-    headers: {Authorization: `Token ${this.$store.state.login.Token}`}
+    headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
       })
     .then(function(data){
       console.log("fatch-userdata:",data)
-      console.log("this.$store.state.login.loginInfo:",this.$store.state.login.loginInfo)
-      this.getUserInfo()
+      bus.$emit('userInforRefreash')
+      this.userUpdate.nickname = ""
+      this.userUpdate.profile_image = ""
+      this.userUpdate.cellphone = ""
+      this.userUpdate.name = ""
+
       })
+    .catch( error => {
+      return error.json()
+      })
+    .then( error => {
+      // console.error("error",error)
+      alert(error.detail)
+      });
     },
 
   },

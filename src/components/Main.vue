@@ -14,7 +14,7 @@ import MainCategori from './Main_Categori.vue'
 import MainClassList from './Main_Class-list.vue'
 
 
-
+import {bus} from '../bus'
 
 export default {
   // props: ['classlist'],

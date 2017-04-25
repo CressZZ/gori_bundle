@@ -5,7 +5,7 @@
 
 
   .header__heading
-    background: $main-color
+    background: $main-h-color
     padding: 0 20px
     height: 72px
     display: flex
@@ -39,13 +39,13 @@
       font-size: $font-m-size
       display: flex
       align-items: center
-  .navi_menu_service
+  .navi_menu_tutor
     // margin: 28px 0
     &::before
       content: ''
       background: #aaa
       position: absolute
-      top: 217px
+      top: 216px
       left: 20px
       width: 90%
       height: 1px
@@ -56,7 +56,7 @@
       content: ''
       background: #aaa
       position: absolute
-      top: 145px
+      top: 143px
       left: 20px
       width: 90%
       height: 1px
@@ -67,6 +67,8 @@
       padding: 20px 60% 20px 0
       &:hover
         font-weight: 600
+        color: $point-color
+
 
   .header__navi__lnb_list-sec-2
     display: flex
@@ -110,7 +112,7 @@
 
 @media screen and (min-width: 690px)
   .header
-    background: $main-color
+    background: $main-h-color
     // opacity: 0.9
 
 
@@ -150,8 +152,9 @@
         padding: 20px 0px
 
         &:hover
-          // color: $point-color
-          font-weight: 500
+          color: $point-color
+          font-weight: 600
+
   //
 // border: none
 // margin: 2rem

@@ -7,13 +7,10 @@
       <div class="row">
         <p class="speaking__descrip"></p>
         <img :src="`${detailAll.tutor.profile_image}`" :alt="`${detailAll.tutor.nickname}`" class="speaking__tutor-picture  col-1-4">
-        <p class="speaking__descrip col-3-4 col-6-12">{{detailAll.tutor_info ? detailAll.tutor_info : ""}}</p>
-
-        <!-- <strong class="speaking__tutor-speaking col-3-4 push-2-4 col-5-12 col-6-12 push-1-12"> "{{detailAll.tutor_info ? detailAll.tutor_info : ""}}"</strong> -->
+        <p class="speaking__descrip col-3-4 col-6-12" v-html="whiteSpace(tutor_info)"></p>
       </div>
 
-      </div>
-      <!-- <p class="speaking__descrip col-4-4 col-7-12">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ametLorem ipsum dolor sit amet</p> -->
+    </div>
 
   </section>
 </template>
@@ -21,11 +18,19 @@
 <script>
 export default {
   props: ["detailAll"],
+  methods: {
+    whiteSpace(text){
+      return text.replace(/\r\n/gi,"<br>")
+    }
+  },
+  computed:{
+    tutor_info(){
+      return this.detailAll.tutor_info ? this.detailAll.tutor_info : ""
+    }
+  },
 
 }
 </script>
 
-  <style lang="sass">
-    // .speaking
-    //   transition: all 1s
-  </style>
+<style lang="sass">
+</style>

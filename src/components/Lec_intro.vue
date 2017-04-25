@@ -8,7 +8,7 @@
         <div class="intro__img-container">
           <img :src="`${detailAll.cover_image}`" :alt="`${detailAll.title}`" v-cloak>
         </div>
-        <p class="intro__description" v-cloak>{{detailAll.class_info}}</p>
+        <p class="intro__description" v-html="whiteSpace(detailAll.class_info)" v-cloak></p>
 
       </div>
 
@@ -20,8 +20,17 @@
 <script>
 export default {
   props: ["detailAll"],
+  created(){
+  },
+  computed:{
+  },
+  methods:{
+    whiteSpace(text){
+      return text.replace(/\r\n/gi,"<br>")
+    }
 
-
+  }
+//
 }
 </script>
 

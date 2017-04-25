@@ -20,8 +20,10 @@
     overflow: hidden
     margin-bottom: $stand-height
     img
-      width: 100%
-      @include centering_img
+      position: absolute
+      max-width: 580px
+      // width: 100%
+      // @include centering_img
 
   .intro__description
     padding: 0 20px
@@ -33,7 +35,7 @@
     max-width: 1200px
     padding: 0 20px 0 20px
     margin: 0 auto
-    font-size: $font-m-size 
+    font-size: $font-m-size
     @include bording-pc
 
   .intro__img-container
@@ -44,5 +46,7 @@
     overflow: hidden
     margin-bottom: $stand-height
     img
+      position: absolute
       width: 100%
-      @include centering_img
+      max-width: 670px
+      // @include centering_img

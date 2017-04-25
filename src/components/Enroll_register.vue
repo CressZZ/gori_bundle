@@ -41,11 +41,11 @@
         </div>
         <div class="enroll-lec__list enroll-lec__introduce-tutor">
           <h3 class="">튜터소개</h3>
-          <input v-model = "registerInfo.tutor_info" type="text" placeholder="내용을 입력해주세요" class="">
+          <textarea v-model = "registerInfo.tutor_info" type="text" placeholder="내용을 입력해주세요" class=""></textarea>
         </div>
         <div class="enroll-lec__list enroll-lec__introduce-lec">
           <h3 class="">수업소개</h3>
-          <input v-model = "registerInfo.class_info" type="text" placeholder="내용을 입력해주세요" class="">
+          <textarea v-model = "registerInfo.class_info" type="text" placeholder="내용을 입력해주세요" class=""></textarea>
         </div>
         <div class="enroll-lec__list enroll-lec__timeperday">
           <h3 class="">기본시간</h3>
@@ -66,18 +66,16 @@
         </div>
         <div class="enroll-lec__list enroll-lec__num">
           <h3 class="number_of_class">수업횟수</h3>
-          <input :value="tempNumber" @focus="clearNumClass" @change="commaNumClass" type="text" placeholder="총 수업 횟수를 적어주세요" class="number_of_class"> &nbsp &nbsp 회
+          <input :value="tempNumber" @focus="clearNumClass" @change="commaNumClass" type="text" placeholder="0" class="number_of_class">회
         </div>
         <div class="enroll-lec__list enroll-lec__cost">
           <h3 class="">시간당 가격</h3>
           <!-- <input v-model = "registerInfo.price_per_hour" type="number"  placeholder="1시간 당 가격을 적어주세요" class=""> -->
-          <input :value="tempPrice" @focus="clearPerPrice" @change="commaPerPrice" type="text"  placeholder="1시간 당 가격을 적어주세요" class="price_per_hour">
-
-          &nbsp &nbsp 원/시간
+          <input :value="tempPrice" @focus="clearPerPrice" @change="commaPerPrice" type="text"  placeholder="0" class="price_per_hour">원
         </div>
         <div class="enroll-lec__list enroll-lec__totalcost">
-          <h3 class="">수업비용</h3>
-          <input type="text" :value="totalPrice"  readonly="readonly" placeholder="총 수업 비용을 안내합니다" class="totalPrice">&nbsp &nbsp 원
+          <h3 class="">수업총비용</h3>
+          <input type="text" :value="totalPrice"  readonly="readonly" placeholder="0" class="totalPrice">원
         </div>
       <!-- </div> -->
         <!-- <div class="enroll-lec__curriculum">
@@ -100,7 +98,9 @@
       </div>
     </fieldset>
   </form>
-    <button type="button" class="enroll__next-btn" @click="register"> 다음 </button>
+   <div class="warpper-btn">
+    <button type="button" class="enroll__next-btn" @click="register"> next> </button>
+  </div>
   </section>
 </template>
 
@@ -212,7 +212,11 @@ export default {
       })
       .catch( error => {
         console.error("error!!",error)
-        alert(error.bodyText)
+        return error.json()
+      })
+      .then( error => {
+        console.error("error!! Json",error)
+        alert(error.detail)
       });
 
     }

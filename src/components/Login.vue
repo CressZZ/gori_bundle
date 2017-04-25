@@ -14,7 +14,7 @@
 
               <input type="password" placeholder="비밀번호" required="" title="비밀번호" ng-model="pw" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required"  v-model = "loginInfo.password">
 
-              <button class="login__email-btn" ng-click="Login()" @click = "submitLogin">로그인</button>
+              <button type="button" class="login__email-btn" ng-click="Login()" @click = "submitLogin">로그인</button>
               <div class="checkbox-custom checkbox-default">
                 <input id="remember_me" name="user[remember_me]" type="checkbox">
                 <label for="remember_me">로그인 상태 유지</label>
@@ -59,8 +59,8 @@ export default {
     return {
       isVisible: false,
       loginInfo: {
-        // username: "",
-        email: "",
+        username: "",
+        // email: "",
         password: "",
       },
 
@@ -72,62 +72,17 @@ export default {
       this.isVisible = false
     },
     submitLogin() {
-      this.login()
-    },
-    login(){
-      this.$http.post('member/login/', this.loginInfo)
-      .then(function(response){
-        return response.json()
-      })
-      .then(function(data){
-        this.$store.commit('Token', data.key)
-        this.closeModal()
-        alert("로그인 완료!!")
-        this.userInfo()
-        this.wishlist()
-
-
-      })
-      .catch( error => {
-        console.log("error:",error)
-      });
-    },
-    userInfo(){
-      this.$http.get('member/profile/user/', {
-        headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-      })
-      .then(function(response){
-        console.log("user-detail-response:",response)
-        return response.json()
-      })
-      .then(function(data){
-        console.log("data:",data)
-        this.$store.commit('loginInfo', data)
-      })
-      .catch(function(err){
-        console.log("err:",err.bodyText)
-      })
-    },
-    wishlist(){
-      this.$http.get('member/wish-list/', {
-        headers: {Authorization: `Token ${this.$store.state.login.Token}`}
-      })
-      .then(function(response){
-        console.log("user-detail-response:",response)
-        return response.json()
-      })
-      .then(function(data){
-        console.log("data:",data)
-        this.$store.commit('wishlist', data)
-        bus.$emit('wishrefreash')
-      })
-      .catch(function(err){
-        console.log("err:",err.bodyText)
-      })
+      // this.login()
+      console.log(":click login");
+      bus.$emit('submitLogin', this.loginInfo)
+      this.loginInfo.username = ""
+      this.loginInfo.password = ""
+      this.closeModal()
     },
   },
 
   created(){
+    //헤더에서 로그인 클릭하면 활성화 됨
     bus.$on('loginvisible', () => {this.isVisible = true})
   },
 

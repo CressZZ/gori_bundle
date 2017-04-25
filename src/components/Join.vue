@@ -21,7 +21,7 @@
                 <input id="policy" type="checkbox" required>
                 <label for="policy" class="policy">서비스 이용 약관에 동의합니다.</label>
               </div>
-              <button class="join__email-btn" ng-click="Join()" @click = "submitLogin">회원가입</button>
+              <button type="button" class="join__email-btn" ng-click="Join()" @click = "submitSiginup">회원가입</button>
             </form>
             <div class="facebook__join ng-scope" data-ng-controller="FBLoginController">
               <button class="facebook__join-btn" ng-click="FBLogin()">facebook 회원가입</button>
@@ -49,37 +49,70 @@ export default {
           password1: "",
           password2: "",
           name: ""
-      }
+      },
+      loginInfo: {
+        username: "",
+        password: "",
+      },
     }
   },
   methods: {
-    submitLogin(){
+    submitSiginup(){
+      if(this.joinInfo.password1 !== this.joinInfo.password2 ){
+        alert("비밀번호가 일치하지 않습니다. ")
+        return
+      }
+      if(this.joinInfo.username === "" || this.joinInfo.username === "" ||this.joinInfo.username === "" || this.joinInfo.username === "" ){
+        alert("모든항목을 빠짐없이 입력해 주세요. ")
+        return
+
+      }
       this.$http.post('member/signup/', this.joinInfo)
       .then(function(response){
+        console.log("회원가입 되었습니다.");
+        alert("회원가입 되었습니다. ")
+
+        this.loginInfo.username = this.joinInfo.username
+        this.loginInfo.password = this.joinInfo.password1
         return response.json()
       })
       .then(function(data){
-        this.$store.commit('Token', data.key)
+        // this.$store.commit('Token', data.key)
         this.$store.commit('joinInfo', this.joinInfo)
         this.closeModal()
         this.joinInfo.username = "";
         this.joinInfo.password1 = "";
         this.joinInfo.password2 = "";
         this.joinInfo.name = "";
+        console.log("submitSiginup-data:",data)
+        // bus.$emit('submitLogin', this.loginInfo)
+      })
+      .then(function(){
 
       })
+      // .catch( error => {
+      //   this.joinInfo.username = "";
+      //   this.joinInfo.password1 = "";
+      //   this.joinInfo.password2 = "";
+      //   this.joinInfo.name = "";
+      //   alert(error.bodyText)
+      // });
       .catch( error => {
+        this.joinInfo.username = "";
+        this.joinInfo.password1 = "";
+        this.joinInfo.password2 = "";
+        this.joinInfo.name = "";
+        return error.json()
+      })
+      .then( error => {
         console.log("error:",error)
+
       });
     },
-    // keyClose
     closeModal: function() {
-      // console.log('clicked');
-      // this.$emit('joinnonVisible');
       this.isVisible = false
     }
   },
-  // props: ['joinvisibles'],
 
   created(){
     bus.$on('joinvisible', () => {this.isVisible = true})

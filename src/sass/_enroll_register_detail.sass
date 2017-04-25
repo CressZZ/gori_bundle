@@ -1,7 +1,7 @@
 @media screen and (max-width: 689px)
 
   .enroll__detail
-    border-top: 5px solid $main-color
+    border-top: 1px solid $main-color
     float: left
     width: 100%
     margin-top: 48px
@@ -9,17 +9,30 @@
     color: $font-main-color
     font-weight: 400
     background-color: white
-    input
-      border: 1px solid $point-color
+    .enroll-lec__time__input
+      border: 1px solid $font-sub-color
       border-radius: 5px
 
+  .enroll-lec__introduce-tutor, .enroll-lec__introduce-lec
+    textarea
+      width: 75.68%
+      height: 48px
+      // border: 1px solid $font-sub-color
+      background: $bg-color
+      font-size: $font-m-size
+      padding: 10px
+
   .enroll-lec__time-cost
-    padding-bottom: 48px
-    border-bottom: 1px solid black
+    padding-bottom: 24px
+    border-bottom: 1px solid $font-faint-color
+
 
   .enroll-lec__time-cost__heading
-    margin: 24px 0
-  
+    // margin: 24px 0
+
+  .enroll-lec__time-cost__heading-set
+    margin: 20px 0
+
 
   .enroll-lec__list
     display: flex
@@ -42,7 +55,8 @@
       width: 75.86%
       height: 48px
       font-size: 16px
-      padding-left: 10px
+      padding-right: 10px
+      margin-right: 10px
       border-radius: 5px
 
   .enroll-lec__timeperday-list
@@ -55,19 +69,26 @@
       width: 50%
       font-size: 16px
       height: 48px
+      border-color: $font-sub-color
 
   .enroll-lec__num, .enroll-lec__cost
     input
       width: 37.93%
       height: 48px
       font-size: 16px
-      padding-left: 10px
+      padding-right: 10px
+      margin-right: 10px
       border-radius: 5px
+      // text-align: left
 
   .enroll-lec__totalcost
     input
       user-select: none
       width: 37.93%
+      color: #ff3e81
+    input::placeholder
+      color: #ff3e81
+
 
   .enroll-lec-location__heading
      margin-bottom: 24px
@@ -83,6 +104,7 @@
       width: 50%
       font-size: 16px
       height: 48px
+      border-color: $font-sub-color
 
   .enroll-lec__addcost
     width: 75.86%
@@ -91,6 +113,9 @@
     display: flex
     label
       margin-right: 20px
+    input
+      margin-right: 5px
+
 
   .enroll-lec-location__heading-comment
     input
@@ -99,6 +124,7 @@
       font-size: 16px
       padding-left: 10px
       border-radius: 5px
+      border: 1px solid $font-main-color
 
   .enroll-btn
     display: block
@@ -106,9 +132,25 @@
     padding: 20px 20px
     border-radius: 5px
     width: 100%
-    background-color: $point-color
+    background-color: $font-sub-color
     color: #fff
+    font-size: $font-m-size
+    &:hover
+      background: $point-color
+      color: #fff
 
+  .enroll__next-btn
+    background: $font-sub-color
+    border-radius: 3px
+    padding: 14px 20px
+    color: #fff
+    &:hover
+      background: $font-main-color
+
+  .warpper-btn
+    margin: 0 auto
+    // background: #c30
+    text-align: center
 
 @media screen and (min-width: 690px)
 
@@ -121,17 +163,31 @@
     color: $font-main-color
     font-weight: 400
     background-color: white
-    input
-      border: 1px solid $point-color
+    .enroll-lec__time__input
+      border: 1px solid $font-sub-color
       border-radius: 5px
 
+  .enroll-lec__introduce-tutor, .enroll-lec__introduce-lec
+    textarea
+      width: 75.68%
+      height: 48px
+      font-size: $font-m-size
+      // border: 1px solid $font-sub-color
+      background: $bg-color
+      padding: 10px
+
+
   .enroll-lec__time-cost
-    padding-bottom: 48px
-    border-bottom: 1px solid black
+    padding-bottom: 24px
+    border-bottom: 1px solid $font-faint-color
 
   .enroll-lec__time-cost__heading
     margin-bottom: 24px
-    margin-top: 24px
+    // background: #19c
+    // margin-top: 24px
+
+  .enroll-lec__time-cost__heading-set
+    margin: 20px 0
 
   .enroll-lec__list
     display: flex
@@ -139,22 +195,29 @@
     height: 48px
     margin-bottom: 24px
     h3
-      width: 20.69%
+      width: 90px
       margin-right: 3.44%
       height: 48px
       display: flex
       align-items: center
+      // background: #231
 
   .enroll-lec__day
+    // background: #109
     label
-      margin-right: 15px
+      width: 380px
+      margin-right: 10px
+    input
+      margin-right: 4px
+
 
   .enroll-lec__time,  .enroll-lec__timeperday, .enroll-lec__totalcost
     input
       width: 75.86%
       height: 48px
       font-size: 16px
-      padding-left: 10px
+      padding: 010px
+      margin-right: 10px
       border-radius: 5px
 
   .enroll-lec__timeperday-list
@@ -167,19 +230,27 @@
       width: 50%
       font-size: 16px
       height: 48px
+      border-color: $font-sub-color
 
   .enroll-lec__num, .enroll-lec__cost
     input
       width: 37.93%
       height: 48px
       font-size: 16px
-      padding-left: 10px
+      padding-right: 10px
+      margin-right: 10px
       border-radius: 5px
+      // text-align: left
 
   .enroll-lec__totalcost
     input
       user-select: none
       width: 37.93%
+      color: #ff3e81
+    input::placeholder
+      color: #ff3e81
+
+      // text-align: left
 
 
   .enroll-lec-location__heading
@@ -196,6 +267,7 @@
       width: 50%
       font-size: 16px
       height: 48px
+      border-color: $font-sub-color
 
   .enroll-lec__addcost
     width: 75.86%
@@ -204,6 +276,9 @@
     display: flex
     label
       margin-right: 20px
+    input
+      margin-right: 5px
+
 
   .enroll-lec-location__heading-comment
     input
@@ -212,12 +287,37 @@
       font-size: 16px
       padding-left: 10px
       border-radius: 5px
+      border: 1px solid $font-main-color
+
 
   .enroll-btn
     display: block
-    margin: 0 auto
-    padding: 20px 20px
-    border-radius: 5px
-    width: 100%
-    background-color: $point-color
+    margin: 20px auto
+    padding: 14px 12px
+    border-radius: 4px
+    width: 20%
+    background-color: $font-sub-color
     color: #fff
+    font-size: $font-m-size
+    &:hover
+      background: $point-color
+      color: #fff
+
+  .enroll__next-btn
+    font-size: $font-m-size
+    // background: $font-sub-color
+    border-radius: 3px
+    padding: 14px 20px
+    float: right
+    // margin-top: 20px
+    color: $font-sub-color
+    &:hover
+      background: $font-main-color
+      color: #fff
+
+
+
+  .warpper-btn
+    margin: 0 auto
+    // background: #c30
+    text-align: center

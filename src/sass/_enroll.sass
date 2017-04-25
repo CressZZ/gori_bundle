@@ -1,4 +1,6 @@
 @media screen and (max-width: 689px)
+
+
   .wrapper-enroll
     width: 100%
     display: flex
@@ -23,7 +25,7 @@
   .member__info
     margin-bottom: 24px
     text-align: center
-    border-bottom: 1px solid black
+    border-bottom: 1px solid $font-sub-color
 
   .member__info-img
     width: 100px
@@ -66,10 +68,14 @@
     justify-content: space-between
     width: 100%
     button
+      font-size: $font-s-size
       width: 50%
       height: 48px
-      background-color: rgb(207, 207, 207)
+      background-color: $bg-color
       border: 1px solid white
+      &:hover
+        background: $main-color
+        color: #fff
 
 
   .member__info__lec
@@ -87,17 +93,27 @@
     // border: 1px solid $font-main-color
     li
       width: 50%
-      height: 100px
+      height: 110px
       display: flex
       justify-content: center
       align-items: center
       text-align: center
       border: 1px solid white
-      background-color: rgb(207, 207, 207)
+      background-color: $font-sub-color
+      color: #fff
+      &:hover
+        background: $main-color
 
+  .member__info__lec-list__item p
+    // background: #232
+    margin-bottom: 4px
 
 
 @media screen and (min-width: 690px)
+  .wrapper-enroll-all
+    background-color: $bg-color
+
+
   .wrapper-enroll
     font-size: $font-m-size
     max-width: 1200px
@@ -106,7 +122,7 @@
     display: flex
     justify-content: space-between
     // color: white
-    background-color: rgb(191, 191, 191)
+    background-color: $bg-color
 
 
   .wrapper-enroll-section
@@ -122,7 +138,8 @@
   .member__info
     margin-bottom: 24px
     text-align: center
-    border-bottom: 1px solid black
+    border-bottom: 1px solid $font-sub-color
+
 
   .member__info-img
     width: 100px
@@ -151,6 +168,10 @@
 
   .profile__list__detail
     font-size: $font-m-size
+    tr th
+      // background: #222
+      width: 58px
+      margin-right: 3px
 
   .profile__list th
     font-size: $font-m-size
@@ -165,10 +186,14 @@
     justify-content: space-between
     width: 100%
     button
+      font-size: $font-s-size
       width: 50%
       height: 48px
-      background-color: rgb(207, 207, 207)
+      background-color: $bg-color
       border: 1px solid white
+      &:hover
+        background: $main-color
+        color: #fff
 
 
   .member__info__lec
@@ -191,5 +216,12 @@
       justify-content: center
       align-items: center
       text-align: center
-      border: 1px solid white
-      background-color: rgb(207, 207, 207)
+      border: 0.5px solid $bg-color
+      background-color: $font-sub-color
+      color: #fff
+      &:hover
+        background: $main-color
+
+  .member__info__lec-list__item p
+    // background: #232
+    margin-bottom: 4px

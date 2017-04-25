@@ -1,0 +1,663 @@
+
+@media screen and (max-width: 689px)
+  .class-list__heading_wrapper
+    // background: #ca4
+    padding: 48px 0
+
+  .class-list
+    text-align: center
+    padding: 0 20px
+
+
+  .class-list__heading
+    font-size: 32px
+
+  .class-list__subtitle
+    padding: 5px
+    font-size: $font-m-size
+
+  .class-list__carousel
+    // 감추기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    padding: 1px
+    overflow: scroll
+    &::-webkit-scrollbar
+      display: none
+
+  .class-list__carousel__list
+    white-space: nowrap
+    font-size: 0
+    @for $i from 2 through 8
+      li
+        &:nth-child(#{$i})
+          margin-left: 1%
+    li
+      position: relative
+      display: inline-block
+      width: 49.5%
+      border: 1px solid $font-faint-color
+      // font-size: 1rem
+
+
+
+  .class-list__carousel
+    .is_new
+      font-size: 3px
+      position: absolute
+      top: 0
+      right: 0
+      color: #fff
+      background-color: $font-main-color
+      padding: 1px 4px
+
+    .class__wish
+      background: $font-faint-color
+      width: 25px
+      height: 25px
+      border-radius: 50%
+
+    .is_wish
+      position: absolute
+      top: 31%
+      left: 53%
+
+    .icon-heart
+      font-size: $font-m-size
+      color: #ff3e81
+
+    .class__tutor-picture
+      // background: #162
+      width: 70px
+      height: 70px
+      margin-top: 40px
+      border-radius: 50%
+
+    .class__tutor-name
+      font-size: $font-m-size
+      padding: 8px 0
+
+    .class__star-total
+      // margin-bottom: 20px
+      display: flex
+      justify-content: center
+      font-size: $font-s-size
+
+    .start-total-num
+      padding: 0 0 0 3px
+
+  .icon-star
+    color: gold
+
+  .icon-star::before
+    margin: 0
+
+
+  .class__intro__title
+    min-height: 3em
+
+    font-size: $font-m-size
+    display: block
+    font-weight: 600
+    padding: 5px 20px 0 20px
+    text-align: center
+    overflow: hidden
+    margin: 20px auto 20px auto
+    white-space: normal
+    @include say-dot
+
+
+  @for $i from 2 through 4
+    .class__intro
+      dd
+        &:nth-child(#{$i})
+          &::before
+            content: "・"
+            padding: 0 10px
+
+  .class__intro
+    padding: 19px 30px
+    border-top: 1px solid $font-faint-color
+    display: flex
+    justify-content: center
+
+  .class__intro dd
+    font-size: 11px
+
+  .class-list__carousel__more
+    color: #fff
+    margin: 30px
+    padding: 10px 30px
+    border-radius: 2px
+    background-color: $point-color
+    font-size: $font-s-size
+
+  .class-list__carousel__left, .class-list__carousel__right
+    display: none
+
+
+@media screen and (min-width: 690px) and (max-width: 959px)
+  .class-list__heading_wrapper
+    // background: #ca4
+    padding: 52px 0
+
+
+
+  .class-list__heading
+    font-size: 32px
+
+  .class-list__subtitle
+    padding: 5px
+    font-size: $font-m-size
+
+  .class-list
+    text-align: center
+
+    width: 80%
+    // max-width: 1200px
+    margin: 0 auto
+
+  .class-list__carousel
+    // padding: 2px
+    // 감추기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  .class-list__carousel__list
+    white-space: nowrap
+    font-size: 0
+    overflow: scroll
+    // overflow: hidden
+    // @for $i from 2 through 8
+      // li
+      //   &:nth-child(#{$i})
+      //     margin-left: 0.5%
+    li
+      position: relative
+      display: inline-block
+      width: 33.333%
+      .wrapper
+        width: 99%
+        border: 1px solid $font-faint-color
+      // margin: 0 0.5%
+
+      // background-color: red
+      // transform: translate(-100%)
+      // font-size: 1rem
+
+
+  .wrapper
+    // .is_new
+    //   font-size: 3px
+    //   position: absolute
+    //   top: 0
+    //   right: 0
+    //   color: #fff
+    //   background-color: rgb(57, 57, 57)
+    //   padding: 1px 4px
+
+    .class__wish
+      background: #fff
+      width: 25px
+      height: 25px
+      border-radius: 50%
+
+    .is_wish
+      position: absolute
+      top: 31%
+      left: 53%
+    .icon-heart
+      font-size: $font-m-size
+      color: red
+
+    .class__tutor-picture
+      // background: #162
+      width: 70px
+      height: 70px
+      margin-top: 40px
+      border-radius: 50%
+
+    .class__tutor-name
+      font-size: $font-m-size
+      padding: 8px 0
+
+    .class__star-total
+      // margin-bottom: 20px
+      display: flex
+      justify-content: center
+      font-size: $font-s-size
+
+    .start-total-num
+      padding: 0 0 0 3px
+
+    .icon-star
+      color: gold
+
+    .icon-star::before
+      margin: 0
+
+  .class__intro__title
+    font-size: $font-m-size
+    min-height: 3em
+    display: block
+    font-weight: 600
+    padding: 5px 20px 0 20px
+    text-align: center
+    overflow: hidden
+    margin: 20px auto 20px auto
+    white-space: normal
+    @include say-dot
+
+
+  @for $i from 2 through 4
+    .class__intro
+      dd
+        &:nth-child(#{$i})
+          &::before
+            content: "・"
+            padding: 0 10px
+
+  .class__intro
+    padding: 19px 30px
+    border-top: 1px solid $font-faint-color
+    display: flex
+    justify-content: center
+
+  .class__intro dd
+    font-size: 11px
+
+  .class-list__carousel__more
+    color: $point-color
+    margin: 30px
+    font-weight: 600
+    padding: 10px 40px
+    border-radius: 2px
+    border: 2px solid $point-color
+    font-size: $font-s-size
+    position: relative
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    content: ''
+    position: absolute
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    z-index: -1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 100%
+    background-color: $point-color
+
+  .class-list__carousel__more:hover
+   color: #fff
+   &::after
+     right: 0
+
+
+  .class-list__carousel__left, .class-list__carousel__right
+    position: relative
+
+  .class-list__carousel__left
+    top: -190px
+    left: -44%
+    .icon-left-open-big
+      font-size: 2rem
+      color: $font-faint-color
+
+  .class-list__carousel__right
+    top: -190px
+    left: 44%
+    .icon-right-open-big
+      font-size: 2rem
+      color: $font-faint-color
+
+
+
+
+@media screen and (min-width: 960px) and (max-width: 1199px)
+
+  .class-list__heading_wrapper
+    // background: #ca4
+    padding: 52px 0
+
+
+
+  .class-list__heading
+    font-size: 32px
+
+  .class-list__subtitle
+    padding: 5px
+    font-size: $font-m-size
+
+  .class-list
+    text-align: center
+
+    width: 80%
+    // max-width: 1200px
+    margin: 0 auto
+
+  .class-list__carousel
+    // padding: 2px
+    // 감추기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  .class-list__carousel__list
+    white-space: nowrap
+    font-size: 0
+    overflow: hidden
+    // @for $i from 2 through 8
+      // li
+      //   &:nth-child(#{$i})
+      //     margin-left: 0.5%
+    li
+      position: relative
+      display: inline-block
+      width: 25%
+      .wrapper
+        width: 99%
+        border: 1px solid $font-faint-color
+      // margin: 0 0.5%
+
+      // background-color: red
+      // transform: translate(-100%)
+      // font-size: 1rem
+
+
+  .wrapper
+    // .is_new
+    //   font-size: 3px
+    //   position: absolute
+    //   top: 0
+    //   right: 0
+    //   color: #fff
+    //   background-color: rgb(57, 57, 57)
+    //   padding: 1px 4px
+
+    .class__wish
+      background: #fff
+      width: 25px
+      height: 25px
+      border-radius: 50%
+
+    .is_wish
+      position: absolute
+      top: 31%
+      left: 53%
+    .icon-heart
+      font-size: $font-m-size
+      color: red
+
+    .class__tutor-picture
+      // background: #162
+      width: 70px
+      height: 70px
+      margin-top: 40px
+      border-radius: 50%
+
+    .class__tutor-name
+      font-size: $font-m-size
+      padding: 8px 0
+
+    .class__star-total
+      // margin-bottom: 20px
+      display: flex
+      justify-content: center
+      font-size: $font-s-size
+
+    .start-total-num
+      padding: 0 0 0 3px
+
+    .icon-star
+      color: gold
+
+    .icon-star::before
+      margin: 0
+
+  .class__intro__title
+    font-size: $font-m-size
+    min-height: 3em
+    display: block
+    font-weight: 600
+    padding: 5px 20px 0 20px
+    text-align: center
+    overflow: hidden
+    margin: 20px auto 20px auto
+    white-space: normal
+    @include say-dot
+
+
+  @for $i from 2 through 4
+    .class__intro
+      dd
+        &:nth-child(#{$i})
+          &::before
+            content: "・"
+            padding: 0 10px
+
+  .class__intro
+    padding: 19px 30px
+    border-top: 1px solid $font-faint-color
+    display: flex
+    justify-content: center
+
+  .class__intro dd
+    font-size: 11px
+
+  .class-list__carousel__more
+    color: $point-color
+    margin: 30px
+    font-weight: 600
+    padding: 10px 40px
+    border-radius: 2px
+    border: 2px solid $point-color
+    font-size: $font-s-size
+    position: relative
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    content: ''
+    position: absolute
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    z-index: -1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 100%
+    background-color: $point-color
+
+  .class-list__carousel__more:hover
+   color: #fff
+   &::after
+     right: 0
+
+
+  .class-list__carousel__left, .class-list__carousel__right
+    position: relative
+
+  .class-list__carousel__left
+    top: -190px
+    left: -44%
+    .icon-left-open-big
+      font-size: 2rem
+      color: $font-faint-color
+
+  .class-list__carousel__right
+    top: -190px
+    left: 44%
+    .icon-right-open-big
+      font-size: 2rem
+      color: $font-faint-color
+
+@media screen and (min-width: 1200px)
+
+  .class-list__heading_wrapper
+    // background: #ca4
+    padding: 52px 0
+
+
+
+  .class-list__heading
+    font-size: 32px
+
+  .class-list__subtitle
+    padding: 5px
+    font-size: $font-m-size
+
+  .class-list
+    text-align: center
+
+    width: 80%
+    // max-width: 1200px
+    margin: 0 auto
+
+  .class-list__carousel
+    // padding: 2px
+    // 감추기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  .class-list__carousel__list
+    // white-space: nowrap
+    display: flex
+    flex-flow: nowrap
+    font-size: 0
+    // overflow: hidden
+    // @for $i from 2 through 8
+      // li
+      //   &:nth-child(#{$i})
+      //     margin-left: 0.5%
+    li
+      // position: relative
+      flex: 1
+      // display: inline-block
+      width: 25%
+      .wrapper
+        width: 95%
+        border: 1px solid $font-faint-color
+      // margin: 0 0.5%
+
+      // background-color: red
+      // transform: translate(-100%)
+      // font-size: 1rem
+
+
+  .wrapper
+    // .is_new
+    //   font-size: 3px
+    //   position: absolute
+    //   top: 0
+    //   right: 0
+    //   color: #fff
+    //   background-color: rgb(57, 57, 57)
+    //   padding: 1px 4px
+
+    .class__wish
+      background: #fff
+      width: 25px
+      height: 25px
+      border-radius: 50%
+
+    .is_wish
+      position: absolute
+      top: 31%
+      left: 53%
+    .icon-heart
+      font-size: $font-m-size
+      color: red
+
+    .class__tutor-picture
+      // background: #162
+      width: 70px
+      height: 70px
+      margin-top: 40px
+      border-radius: 50%
+
+    .class__tutor-name
+      font-size: $font-m-size
+      padding: 8px 0
+
+    .class__star-total
+      // margin-bottom: 20px
+      display: flex
+      justify-content: center
+      font-size: $font-s-size
+
+    .start-total-num
+      padding: 0 0 0 3px
+
+    .icon-star
+      color: gold
+
+    .icon-star::before
+      margin: 0
+
+  .class__intro__title
+    font-size: $font-m-size
+    min-height: 3em
+    display: block
+    font-weight: 600
+    padding: 5px 20px 0 20px
+    text-align: center
+    overflow: hidden
+    margin: 20px auto 20px auto
+    white-space: normal
+    @include say-dot
+
+
+  @for $i from 2 through 4
+    .class__intro
+      dd
+        &:nth-child(#{$i})
+          &::before
+            content: "・"
+            padding: 0 10px
+
+  .class__intro
+    padding: 19px 30px
+    border-top: 1px solid $font-faint-color
+    display: flex
+    justify-content: center
+
+  .class__intro dd
+    font-size: 11px
+
+  .class-list__carousel__more
+    color: $point-color
+    margin: 30px
+    font-weight: 600
+    padding: 10px 40px
+    border-radius: 2px
+    border: 2px solid $point-color
+    font-size: $font-s-size
+    position: relative
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    content: ''
+    position: absolute
+    transition: all 1s ease-in-out
+
+  .class-list__carousel__more::after
+    z-index: -1
+    top: 0
+    bottom: 0
+    left: 0
+    right: 100%
+    background-color: $point-color
+
+  .class-list__carousel__more:hover
+   color: #fff
+   &::after
+     right: 0
+
+
+  .class-list__carousel__left, .class-list__carousel__right
+    position: relative
+
+  .class-list__carousel__left
+    top: -190px
+    left: -44%
+    .icon-left-open-big
+      font-size: 2rem
+      color: $font-faint-color
+
+  .class-list__carousel__right
+    top: -190px
+    left: 44%
+    .icon-right-open-big
+      font-size: 2rem
+      color: $font-faint-color

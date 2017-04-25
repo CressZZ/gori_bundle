@@ -1,4 +1,5 @@
 <template lang="html">
+  <div class="wrapper-enroll-all">
   <div class="wrapper-enroll">
     <section class="wrapper-enroll-section">
 
@@ -44,27 +45,40 @@
               <strong>{{userinfo.received_registrations}}건</strong>
             </a>
           </li>
-          <li class="member__info__lec-list__item  member__info__lec-apply">
-            <a href="#">
-              <p>신청한수업</p>
-              <strong>{{userinfo.sent_registrations}}건</strong>
-            </a>
-          </li>
-          <li class="member__info__lec-list__item  member__info__lec-wish">
+
+          <!-- <router-link tag="li" :to = "{ path:  '/enroll/wishList'}"  class="member__info__lec-list__item  member__info__lec-apply"><a href="#"> <p>신청한수업</p>
+          <strong>{{userinfo.received_registrations}}건</strong></a></router-link> -->
+
+          <router-link tag="li" :to = "{ path: '/enroll/appledList'}"  class="member__info__lec-list__item  member__info__lec-wish"><a href="#"><p>신청한수업</p>
+
+          <strong>{{userinfo.sent_registrations}}건</strong></a></router-link>
+
+
+          <!-- <li class="member__info__lec-list__item  member__info__lec-wish">
             <a href="#">
               <p>위시리스트</p>
               <strong>{{userinfo.wish_list}}건</strong>
             </a>
-          </li>
-          <li class="member__info__lec-list__item  member__info__lec-my">
+          </li> -->
+
+
+  <router-link tag="li" :to = "{ path: '/enroll/wishList'}"  class="member__info__lec-list__item  member__info__lec-wish"><a href="#"><p>위시리스트</p>
+  <strong>{{userinfo.wish_list}}건</strong></a></router-link>
+
+
+          <!-- <li class="member__info__lec-list__item  member__info__lec-my">
             <a href="#">
               <p>내수업</p>
         <strong>{{userinfo.received_registrations}}건</strong>
             </a>
-          </li>
-        </ul>
-      </div>
+          </li> -->
 
+      <router-link tag="li" :to = "{ path: '/enroll/myLecList'}"  class="member__info__lec-list__item  member__info__lec-my"><a href="#"><p>내수업</p>
+      <strong>{{appledList.count}}건</strong></a></router-link>
+
+    </ul>
+
+    </div>
     </section>
 
     <transition name="slide"  mode="out-in">
@@ -74,24 +88,73 @@
     </transition>
 
 
-
+  </div>
   </div>
 </template>
 
 <script>
+import {bus} from '../bus'
+
 export default {
   data(){
     return {
-      // userinfo: this.$store.state.login.loginInfo,
+
+      appledList:[],
+      myLecList: []
+
     }
   },
   props: ["detailAll"],
   created() {
+
+    bus.$on('talentsrefreash', () => {this.talentsrefreash()})
+
     console.log("this.$store.state.login.loginInfo:",this.$store.state.login.loginInfo)
+    this.talentsrefreash()
+
+  //
+  //   this.$http.get('member/registrations/', {
+  //   headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
+  // }),
+
+  // this.$http.get('member/talents/', {
+  // headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
+  // })
+  // .then(function(response){
+  //     console.log("dsdfdsfsdfd",response);
+  //     return response.json()
+  // })
+  // .then(function(data){
+  //     this.appledList = data
+  //     // this.myLecList = data.results
+  //     console.log("sdfsfsdfs",this.appledList);
+  // })
+
+
   },
+
   computed:{
     userinfo(){
       return this.$store.state.login.loginInfo
+    }
+    // tutotinfo(){
+    //   return this.$store.state.login.loginInfo
+    // }
+  },
+  methods:{
+    talentsrefreash(){
+      this.$http.get('member/talents/', {
+      headers: {Authorization: `Token ${sessionStorage.getItem("Token")}`}
+      })
+      .then(function(response){
+          console.log("dsdfdsfsdfd",response);
+          return response.json()
+      })
+      .then(function(data){
+          this.appledList = data
+          // this.myLecList = data.results
+          console.log("sdfsfsdfs",this.appledList);
+      })
     }
   }
 }
@@ -99,12 +162,10 @@ export default {
 
   <style lang="sass">
     .slide-leave-active
-      // transition: all 0.8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
       animation: slide-out 0.5s
 
 
     .slide-enter-active
-      // transition: all 0.8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
       animation: slide-in 0.5s
 
     @keyframes slide-in
@@ -123,17 +184,4 @@ export default {
         opacity: 0
 
 
-    // .slide-leave-to
-    //
-    //   transform: translateX(1000px)
-    //   opacity: 0
-    //
-    // .slide-fade-enter
-    //   transform: translateX(-1000px)
-    //   opacity: 0
-
-
-    // @import "../sass/gen_source"
-    // @import "../sass/gen_mixin"
-    // @import "../sass/lec_intro"
   </style>
