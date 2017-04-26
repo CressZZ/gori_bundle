@@ -9,7 +9,7 @@
           <img src="src/media/img/categori/00.jpg"class="list__search-banner-img"></div>
         <div class="list__search__wrapper">
           <form @keydown.enter = "filtering" action="search" class="list__search">
-            <input @keydown.enter.prevent = "filtering" v-model="filter.title" class="list__search__input" type="search" autofocus placeholder="검색어를 입력해 주세요~"><button @click = "filtering" class="list__search__btn" type="button">검색</button>
+            <input id="search-class" @keydown.enter.prevent = "filtering" v-model="filter.title" class="list__search__input" type="search" autofocus placeholder="검색어를 입력해 주세요~"><button @click = "filtering" class="list__search__btn" type="button">검색</button>
           </form>
         </div>
         <div class="list__search__filter">

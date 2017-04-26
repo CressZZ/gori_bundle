@@ -2,7 +2,7 @@
 <template lang="html">
     <div>
       <!-- skip-nav -->
-      <a href="#" class="skip-nav">본문 바로가기</a>
+      <a href="search-class" class="skip-nav">본문 바로가기</a>
         <!-- header -->
         <header class="header">
           <div class="header__wrapper">
